@@ -1075,11 +1075,23 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .main-product__card {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+          flex-direction: column;
   width: 320px;
   padding: 21px 11px 16px 8px;
   border: 1px solid #dbdbdb;
   border-left: none;
+}
+
+.main-product__card-container {
+  -webkit-box-flex: 1; 
+          -ms-flex: 1;
+              flex: 1;
 }
 
 .main-product__card:nth-child(4) {
@@ -1111,20 +1123,6 @@ input[type=number]::-webkit-outer-spin-button {
 .main-product__title-link:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-
-
-.test-wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-line-pack: stretch;
-      align-content: stretch;
-  min-height: 100%;
 }
 
 .main-product__card-rating {
@@ -1235,9 +1233,40 @@ input[type=number]::-webkit-outer-spin-button {
   max-width: 100%;
 }
 
-.card-product__promo {
-  margin-bottom: 5px;
+.card-product-promo-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.card-product__promo-wrap {
   text-align: center;
+}
+
+.promo-wrap--new {
+  color: #2eb68e;
+}
+
+.promo-wrap--hot {
+  color: #c987df;
+}
+
+.promo-wrap--discount {
+  color: #ff6a7e;
+}
+
+.card-product__promo {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+  margin-bottom: 5px;
   font-size: 0;
 }
 
@@ -1254,9 +1283,22 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: 600;
   color: #ffffff;
   text-transform: uppercase;
-  background-color: #2eb68e;
+  background-color: currentColor;
   overflow: hidden;
-  /*box-shadow: 0 5px 12px rgba(42,182, 142, 0.5);*/
+  z-index: 1;
+}
+
+.card-product__status-shadow {
+  display: block;
+  position: absolute;  
+  top: 0;
+  left: 5px;
+  width: calc(100% - 20px);
+  height: 100%;
+  -webkit-box-shadow: 0 5px 12px currentColor;
+          box-shadow: 0 5px 12px currentColor;
+  opacity: 0.5;
+  z-index: 2;
 }
 
 .card-product__status:last-child {
@@ -2100,4 +2142,3 @@ input[type='checkbox']:checked + label .modal-enter__checkbox-indicator::after {
 
 .modal-callback-btn {
   text-align: center;
-}
