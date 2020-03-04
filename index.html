@@ -31,7 +31,12 @@
               </ul>
               <ul class="main-nav__list user-list">
                 <li class="user-list__item">
-                  <a href="#" class="button user-list__button user-list__button--sign">Вход</a>
+                  <a class="user-list__button button button--default">
+                    <span class="button__text button__text--small">
+                      Вход
+                    </span>
+                    <span class="button__icon-enter"></span>
+                  </a>
                 </li>
               </ul>
             </div>  
@@ -42,11 +47,14 @@
         <a class="header-logotype__link"><img class="header-logotype-image" src="img/logo.png" width="195" height="37" alt="Test"></a>
         </div>
         <div class="header-phones__wrapper">
-          <ul class="header-phones__list phones-list">
-            <li class="phones-list__item">+380 98 170 00 740</li>
-            <li class="phones-list__item">+380 98 170 00 740</li>
-          </ul>
-          <button class="button header-phones__button" type="button">Перезвонить мне</button>
+          <div class="header-phones__list">
+            <a class="phones-list__item" href="tel:+3809817000740">+380 98 170 00 740</a>
+            <a class="phones-list__item" href="tel:+3809817000740">+380 98 170 00 740</a>
+          </div>
+          <button class="header-phones__button button button--default" type="button">
+            <span class="button__icon-phone"></span>
+            <span class="button__text button__text--small">Перезвонить мне</span>
+          </button>
         </div>
         <div class="header-actions">
           <ul class="header-actions__list actions-list">
@@ -85,7 +93,7 @@
       <section class="main-menu">
         <h2 class="visually-hidden">Категории товаров</h2>
         <div class="main-menu__trigger">
-          <button class="main-menu__burger" type="button">
+          <button class="main-menu__burger button button--default" type="button">
             <span class="visually-hidden">Открыть меню</span>
           </button>
           <p class="main-menu__title">Меню</p>
@@ -122,15 +130,24 @@
           <form class="main-menu__form" action="" method="post">
             <label for="search" class="visually-hidden">Поиск</label>
             <input class="search-form" id="search" type="search" name="search" placeholder="Поиск по сайту">
-            <div class="main-menu__category">
-              <button class="main-menu__category-button" type="button">Все категории</button>
-              <ul class="main-menu__category-full category-full">
-                <li class="category-full__item"><a href="#">Ссылка 1</a></li>
-                <li class="category-full__item"><a href="#">Ссылка 2</a></li>
-                <li class="category-full__item"><a href="#">Ссылка 3</a></li>
-              </ul>
+              <div class="main-menu__category">
+                <select id="sort-category" class="visually-hidden" name="sort-category">
+                  <option selected value="">Ссылка 1</option>
+                  <option value="1">Ссылка 2</option>
+                  <option value="2">Ссылка 3</option>
+                </select>
+                <div id="main-menu__category-select">
+                  <span class="main-menu__category-current" data-value="">Все категории</span>
+                  <ul class="main-menu__category-full category-full">
+                    <li class="category-full__item" data-value="1"><a href="#">Ссылка 1</a></li>
+                    <li class="category-full__item" data-value="2"><a href="#">Ссылка 2</a></li>
+                    <li class="category-full__item" data-value="3"><a href="#">Ссылка 3</a></li>
+                  </ul>
+                </div>
             </div>
-            <button class="button main-menu_button--search" type="submit">Поиск</button>
+            <button class="main-menu__button-search button button--default">
+              <span class="button__text button__text--big">Поиск</span>
+            </button>
           </form>
         </div>
         <div class="page-filter__wrapper">
@@ -154,75 +171,117 @@
               </p>
           </div>
           <div class="filter-select__wrapper">
-            <div class="filter-select__form-wrapper">
-              <div class="filter-select__form ">
-                <button class="filter-select__title" type="button">
-                  <span class="filter-select__title-text">Select1</span>
+            <form class="filter-select__form-wrapper" action="" method="get">
+              <div class="filter-select__form">
+                <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+                  <option value="" selected>Select1</option>
+                  <option value="1">Item 1</option>
+                  <option value="2">Item 2</option>
+                </select>
+                <div class="filter-select__title" data-value="">
+                  <span class="filter-select__title-current">Select1</span>
                   <span class="filter-select__title--underline"></span>
-                </button>
+                </div>
                 <ul class="filter-select__list select-list">
-                  <li class="filter-select__item">Item 1</li>
+                  <li class="filter-select__item" data-value="">Select1</li>
+                  <li class="filter-select__item" data-value="1">Item 1</li>
                   <li class="filter-select__item">Item 2</li>
                 </ul>
               </div>
               <div class="filter-select__form">
-                <button class="filter-select__title" type="button">
-                  <span class="filter-select__title-text">Select2</span>
+                <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+                  <option value="" selected>Select2</option>
+                  <option value="1">Item 1</option>
+                  <option value="2">Item 2</option>
+                </select>
+                <div class="filter-select__title" data-value="">
+                  <span class="filter-select__title-current">Select2</span>
                   <span class="filter-select__title--underline"></span>
-                </button>
+                </div>
                 <ul class="filter-select__list select-list">
-                  <li class="filter-select__item">Item 1</li>
-                  <li class="filter-select__item">Item 2</li>
+                  <li class="filter-select__item" data-value="">Select2</li>
+                  <li class="filter-select__item" data-value="1">Item 1</li>
+                  <li class="filter-select__item" data-value="2">Item 2</li>
                 </ul>
               </div>
                 <div class="filter-select__form">
-                  <button class="filter-select__title" type="button">
-                    <span class="filter-select__title-text">Select3</span>
+                  <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+                    <option value="" selected>Select3</option>
+                    <option value="1">Item 1</option>
+                    <option value="2">Item 2</option>
+                </select>
+                  <div class="filter-select__title" data-value="">
+                    <span class="filter-select__title-current">Select3</span>
                     <span class="filter-select__title--underline"></span>
-                  </button>
+                  </div>
                   <ul class="filter-select__list select-list">
-                    <li class="filter-select__item">Item 2</li>
-                    <li class="filter-select__item">Item 2</li>
+                    <li class="filter-select__item" data-value="">Select3</li>
+                    <li class="filter-select__item" data-value="1">Item 1</li>
+                    <li class="filter-select__item" data-value="2">Item 2</li>
                   </ul>
               </div>
                 <div class="filter-select__form">
-                  <button class="filter-select__title" type="button">
-                    <span class="filter-select__title-text">Select4</span>
+                  <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+                    <option value="" selected>Select4</option>
+                    <option value="1">Item 1</option>
+                    <option value="2">Item 2</option>
+                </select>
+                  <div class="filter-select__title" data-value="">
+                    <span class="filter-select__title-current">Select4</span>
                     <span class="filter-select__title--underline"></span>
-                  </button>
+                  </div>
                   <ul class="filter-select__list select-list">
-                    <li class="filter-select__item">Item 1</li>
-                    <li class="filter-select__item">Item 2</li>
+                    <li class="filter-select__item" data-value="">Select4</li>
+                    <li class="filter-select__item" data-value="1">Item 1</li>
+                    <li class="filter-select__item" data-value="2">Item 2</li>
                   </ul>
               </div>
               <div class="filter-select__form">
-                  <button class="filter-select__title" type="button">
-                    <span class="filter-select__title-text">Select5</span>
+                <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+                  <option value="" selected>Select5</option>
+                  <option value="1">Item 1</option>
+                  <option value="2">Item 2</option>
+                </select>
+                  <div class="filter-select__title" data-value="">
+                    <span class="filter-select__title-current">Select5</span>
                     <span class="filter-select__title--underline"></span>
-                  </button>
+                  </div>
                   <ul class="filter-select__list select-list">
-                    <li class="filter-select__item">Item 1</li>
-                    <li class="filter-select__item">Item 2</li>
+                    <li class="filter-select__item" data-value="">Select5</li>
+                    <li class="filter-select__item" data-value="1">Item 1</li>
+                    <li class="filter-select__item" data-value="2">Item 2</li>
                   </ul>
               </div>
               <div class="filter-select__form">
-                  <button class="filter-select__title" type="button">
-                    <span class="filter-select__title-text">Select6</span>
+                <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+                  <option value="" selected>Select6</option>
+                  <option value="1">Item 1</option>
+                  <option value="2">Item 2</option>
+                </select>
+                  <div class="filter-select__title" data-value="">
+                    <span class="filter-select__title-current">Select6</span>
                     <span class="filter-select__title--underline"></span>
-                  </button>
+                  </div>
                   <ul class="filter-select__list select-list">
-                    <li class="filter-select__item">Item 1</li>
-                    <li class="filter-select__item">Item 2</li>
+                    <li class="filter-select__item" data-value="">Select6</li>
+                    <li class="filter-select__item" data-value="1">Item 1</li>
+                    <li class="filter-select__item" data-value="2">Item 2</li>
                   </ul>
               </div>
               <div class="filter-select__form">
-                  <button class="filter-select__title" type="button">
-                    <span class="filter-select__title-text">Select7</span>
+                <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+                  <option value="" selected>Select7</option>
+                  <option value="1">Item 1</option>
+                  <option value="2">Item 2</option>
+                </select>
+                  <div class="filter-select__title" data-value="">
+                    <span class="filter-select__title-current">Select7</span>
                     <span class="filter-select__title--underline"></span>
-                  </button>
+                  </div>
                   <ul class="filter-select__list select-list">
-                    <li class="filter-select__item">Item 1</li>
-                    <li class="filter-select__item">Item 2</li>
+                    <li class="filter-select__item" data-value="">Select7</li>
+                    <li class="filter-select__item" data-value="1">Item 1</li>
+                    <li class="filter-select__item" data-value="2">Item 2</li>
                   </ul>
               </div>
               <div class="filter-select__form">
@@ -243,16 +302,18 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
             <div class="filter-select__buttons">
               <p class="filter-select__buttons-wrap">
-                <button class="filter-select__clear" type="button">
-                  <span class="filter-select__clear-title">Очистить фильтр</span>
+                <button class="filter-select__clear-btn button button--reset" type="button">
+                  <span class="button__text button__text--default text--reset">Очистить фильтр</span>
                   <span class="filter-select__clear-cross"></span>
-              </button>
+                </button>
               </p>
               <p class="filter-select__buttons-wrap">
-                <button class="button-submit button__submit-filter">Применить фильтр</button>
+                <button class="button-submit button button--gradient" type="button">
+                  <span class="button__text button__text--default">Применить фильтр</span>
+                </button>
               </p>
             </div>
           </div>
@@ -260,280 +321,293 @@
       </section> 
       </div>
        <section class="main-product">
-        <div class="main-product__top">
-          <h2 class="main-product__title">Карточки товаров</h2>
-          <a href="#" class="main-product__catalog-link"><span class="main-product__catalog-link--underline">Ссылка в каталог</span></a>
+        <div class="product-top">
+          <h2 class="product-top__title">Карточки товаров</h2>
+          <a href="#" class="product-top__link">
+          <span class="product-top__underline">Ссылка в каталог</span></a>
         </div>
-        <div class="main-product__wrapper">
-          <article class="main-product__card">
-            <div class="main-product__card-container">
-            <span class="main-product__card-label">Mark</span>
-            <h3 class="main-product__card-title"><a class="main-product__title-link" href="#">Антифриз Fosser Antifreeze<br>
+        <div class="product-wrapper">
+          <article class="product-card">
+            <div class="product-card-container">
+            <span class="product-card-label">Mark</span>
+            <h3 class="product-card-title"><a class="product-card-title__link" href="#">Антифриз Fosser Antifreeze<br>
             FA 12 Readymix 1 л Concentrat, Germany</a></h3>
-            <div class="main-product__card-rating">
-              <a href="#" class="main-product__card-link">
-                <div class="main-product__stars-wrapper">
+            <div class="product-card-info">
+              <a href="#" class="product-card-info__link">
+                <div class="product-card-info__stars">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                 </div>
-              <span class="main-product__card-reviews">Отзывы (10)</span>
+              <span class="product-card-info__reviews">Отзывы (10)</span>
               </a>
-              <span class="main-product__card-available">В наличии: 24 шт.</span>
+              <span class="product-card-info__available">В наличии: 24 шт.</span>
             </div>
-            <div class="main-product__card-product">
-              <div class="card-product__wrapper">
-                <div class="card-product__type">
+            <div class="product-card-type">
+              <div class="product-card-type__wrapper">
+                <div class="product-card-type__item">
                   <img src="img/summer.png" alt="Летняя шина" width="38" height="38">
-                  <span class="card-product__type-label">Летняя</span>
+                  <span class="product-card-type__item-label">Летняя</span>
                 </div>
-                <div class="card-product__type">
+                <div class="product-card-type__item">
                   <img src="img/car.png" alt="Легковая машина" width="53" height="26">
-                  <span class="card-product__type-label">Легковая</span>
+                  <span class="product-card-type__item-label">Легковая</span>
                 </div>
-                <div class="card-product__type">
+                <div class="product-card-type__item">
                   <img src="img/new-product.png" alt="Новая модель" width="48" height="25">
-                  <span class="card-product__type-label">Новая</span>
+                  <span class="product-card-type__item-label">Новая</span>
                 </div>
               </div>
-              <div class="card-product__model">
-                <a href="#" class="card-product__model-link">
-                  <img src="img/tire1.jpg" alt="Антифриз Fosser Antifreeze" class="card-product__image">
+              <div class="product-card-model">
+                <a href="#" class="product-card-model__link">
+                  <img src="img/tire1.jpg" alt="Антифриз Fosser Antifreeze">
                 </a>
               </div>
             </div>
-            <div class="card-product-promo-list">
-              <div class="card-product__promo-wrap promo-wrap--new">
-              <div class="card-product__promo">
-                <span class="card-product__status card-product__status--new">Новинка</span>
-                <span class="card-product__status-shadow"></span>
+            <div class="product-card-promo">
+              <div class="product-card-promo-wrap promo-wrap--new">
+              <div class="product-card-promo-item">
+                <span class="product-card-promo-item__status status--new">Новинка</span>
+                <span class="product-card-promo-item__shadow"></span>
               </div>
               </div>
-              <div class="card-product__promo-wrap promo-wrap--hot">
-                <div class="card-product__promo">
-                  <span class="card-product__status card-product__status--hot">Хит</span>
-                  <span class="card-product__status-shadow"></span>
+              <div class="product-card-promo-wrap promo-wrap--hot">
+                <div class="product-card-promo-item">
+                  <span class="product-card-promo-item__status status--hot">Хит</span>
+                  <span class="product-card-promo-item__shadow"></span>
                 </div>
               </div>
-                 <div class="card-product__promo-wrap promo-wrap--discount">
-                <div class="card-product__promo">
-                  <span class="card-product__status card-product__status--discount">Скидка</span>
-                  <span class="card-product__status-shadow"></span>
+                 <div class="product-card-promo-wrap promo-wrap--discount">
+                <div class="product-card-promo-item">
+                  <span class="product-card-promo-item__status status--discount">Скидка</span>
+                  <span class="product-card-promo-item__shadow"></span>
                 </div>
               </div>
             </div>
             </div>
-            <div class="card-product__option-container">
-            <div class="card-product__cost">
-              <p class="card-product__price">599 <span>грн.</span></p>
-              <p class="card-product__price-old">1250 грн.</p>
+            <div class="product-card-option-container">
+            <div class="product-card-option__cost">
+              <p class="product-card-option__price">599 <span>грн.</span></p>
+              <p class="product-card-option__price-old">1250 грн.</p>
             </div>
-            <div class="card-product__buy">
-              <button class="button-submit">Купить товар</button>
+            <div class="product-card-buy">
+                <button class="button-submit button button--gradient" type="button">
+                  <span class="button__text button__text--default">Купить товар</span>
+                  <span class="button__icon"></span>
+                </button>
             </div>
-            <div class="card-product__actions">
-              <a class="card-product__actions-link" href="#">
-                <span class="card-product__actions-compare"></span>
-                <span class="card-product__actions-underline">Cравнить товар</span>
+            <div class="product-card-actions">
+              <a class="product-card-actions__link" href="#">
+                <span class="product-card-actions__link-compare"></span>
+                <span class="product-card-actions__link-underline">Cравнить товар</span>
               </a>
-              <a class="card-product__actions-link" href="#">
-                <span class="card-product__actions-favorite"></span>
-                <span class="card-product__actions-underline">В избранное</span>
+              <a class="product-card-actions__link" href="#">
+                <span class="product-card-actions__link-favorite"></span>
+                <span class="product-card-actions__link-underline">В избранное</span>
               </a>
             </div>
             </div>
           </article>
-          <article class="main-product__card">
-            <div class="main-product__card-container">
-            <span class="main-product__card-label">Mark</span>
-            <h3 class="main-product__card-title"><a class="main-product__title-link" href="#">Антифриз Fosser Antifreeze<br>
+          <article class="product-card">
+            <div class="product-card-container">
+            <span class="product-card-label">Mark</span>
+            <h3 class="product-card-title"><a class="product-card-title__link" href="#">Антифриз Fosser Antifreeze<br>
             FA 12 Readymix 1 л Concentrat, Germany</a></h3>
-            <div class="main-product__card-rating">
-              <a href="#" class="main-product__card-link">
-                <div class="main-product__stars-wrapper">
+            <div class="product-card-info">
+              <a href="#" class="product-card-info__link">
+                <div class="product-card-info__stars">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star_grey.png" alt="raiting" width="15" height="14">
                   <img src="img/star_grey.png" alt="raiting" width="15" height="14">
                 </div>
-              <span class="main-product__card-reviews">Отзывы (10)</span>
+              <span class="product-card-info__reviews">Отзывы (10)</span>
               </a>
-              <span class="main-product__card-available">В наличии: 24 шт.</span>
+              <span class="product-card-info__available">В наличии: 24 шт.</span>
             </div>
-            <div class="main-product__card-product">
-              <div class="card-product__wrapper">
-                <div class="card-product__type">
+            <div class="product-card-type">
+              <div class="product-card-type__wrapper">
+                <div class="product-card-type__item">
                   <img src="img/summer.png" alt="Летняя шина" width="38" height="38">
-                  <span class="card-product__type-label">Летняя</span>
+                  <span class="product-card-type__item-label">Летняя</span>
                 </div>
-                <div class="card-product__type">
+                <div class="product-card-type__item">
                   <img src="img/new-product.png" alt="Новая модель" width="48" height="25">
-                  <span class="card-product__type-label">Новая</span>
+                  <span class="product-card-type__item-label">Новая</span>
                 </div>
               </div>
-              <div class="card-product__model">
-                <a href="#" class="card-product__model-link">
-                  <img src="img/tire2.jpg" alt="Антифриз Fosser Antifreeze" class="card-product__image">
+              <div class="product-card-model">
+                <a href="#" class="product-card-model__link">
+                  <img src="img/tire2.jpg" alt="Антифриз Fosser Antifreeze">
                 </a>
               </div>
             </div>
-              <div class="card-product-promo-list">
-                <div class="card-product__promo-wrap promo-wrap--new">
-                <div class="card-product__promo">
-                  <span class="card-product__status card-product__status--new">Новинка</span>
-                  <span class="card-product__status-shadow"></span>
+              <div class="product-card-promo">
+                <div class="product-card-promo-wrap promo-wrap--new">
+                <div class="product-card-promo-item">
+                  <span class="product-card-promo-item__status status--new">Новинка</span>
+                  <span class="product-card-promo-item__shadow"></span>
                 </div>
                 </div>
-                <div class="card-product__promo-wrap promo-wrap--hot">
-                  <div class="card-product__promo">
-                    <span class="card-product__status card-product__status--hot">Хит</span>
-                    <span class="card-product__status-shadow"></span>
+                <div class="product-card-promo-wrap promo-wrap--hot">
+                  <div class="product-card-promo-item">
+                    <span class="product-card-promo-item__status status--hot">Хит</span>
+                    <span class="product-card-promo-item__shadow"></span>
                   </div>
                 </div>
             </div>
             </div>
-            <div class="card-product__option-container">
-              <div class="card-product__cost">
-                <p class="card-product__price">599 <span>грн.</span></p>
-                <p class="card-product__price-old">1250 грн.</p>
+            <div class="product-card-option">
+              <div class="product-card-option__cost">
+                <p class="product-card-option__price">599 <span>грн.</span></p>
+                <p class="product-card-option__price-old">1250 грн.</p>
               </div>
-              <div class="card-product__buy">
-                <button class="button-submit">Купить товар</button>
+              <div class="product-card-buy">
+                <button class="button-submit button button--gradient" type="button">
+                  <span class="button__text button__text--default">Купить товар</span>
+                  <span class="button__icon"></span>
+                </button>
               </div>
-              <div class="card-product__actions">
-                <a class="card-product__actions-link" href="#">
-                  <span class="card-product__actions-compare"></span>
-                  <span class="card-product__actions-underline">Cравнить товар</span>
+              <div class="product-card-actions">
+                <a class="product-card-actions__link" href="#">
+                  <span class="product-card-actions__link-compare"></span>
+                  <span class="product-card-actions__link-underline">Cравнить товар</span>
               </a>
-                <a class="card-product__actions-link" href="#">
-                  <span class="card-product__actions-favorite"></span>
-                  <span class="card-product__actions-underline">В избранное</span>
+                <a class="product-card-actions__link" href="#">
+                  <span class="product-card-actions__link-favorite"></span>
+                  <span class="product-card-actions__link-underline">В избранное</span>
               </a>
               </div>
             </div>
           </article>
-          <article class="main-product__card">
-            <div class="main-product__card-container">
-            <span class="main-product__card-label">Mark</span>
-            <h3 class="main-product__card-title"><a class="main-product__title-link" href="#">Антифриз Fosser Antifreeze<br>
+          <article class="product-card">
+            <div class="product-card-container">
+            <span class="product-card-label">Mark</span>
+            <h3 class="product-card-title"><a class="product-card-title__link" href="#">Антифриз Fosser Antifreeze<br>
             FA 12 Readymix 1 л Concentrat, Germany</a></h3>
-            <div class="main-product__card-rating">
-              <a href="#" class="main-product__card-link">
-                <div class="main-product__stars-wrapper">
+            <div class="product-card-info">
+              <a href="#" class="product-card-info__link">
+                <div class="product-card-info__stars">
                   <img src="img/star_grey.png" alt="raiting" width="15" height="14">
                   <img src="img/star_grey.png" alt="raiting" width="15" height="14">
                   <img src="img/star_grey.png" alt="raiting" width="15" height="14">
                   <img src="img/star_grey.png" alt="raiting" width="15" height="14">
                   <img src="img/star_grey.png" alt="raiting" width="15" height="14">
                 </div>
-              <span class="main-product__card-reviews">Отзывы (10)</span>
+              <span class="product-card-info__reviews">Отзывы (10)</span>
               </a>
-              <span class="main-product__card-available">В наличии: 24 шт.</span>
+              <span class="product-card-info__available">В наличии: 24 шт.</span>
             </div>
-            <div class="main-product__card-product">
-              <div class="card-product__wrapper">
-                <div class="card-product__type">
+            <div class="product-card-type">
+              <div class="product-card-type__wrapper">
+                <div class="product-card-type__item">
                   <img src="img/summer.png" alt="Летняя шина" width="38" height="38">
-                  <span class="card-product__type-label">Летняя</span>
+                  <span class="product-card-type__item-label">Летняя</span>
                 </div>
-                <div class="card-product__type">
+                <div class="product-card-type__item">
                   <img src="img/car.png" alt="Легковая машина" width="53" height="26">
-                  <span class="card-product__type-label">Легковая</span>
+                  <span class="product-card-type__item-label">Легковая</span>
                 </div>
-                <div class="card-product__type">
+                <div class="product-card-type__item">
                   <img src="img/new-product.png" alt="Новая модель" width="48" height="25">
-                  <span class="card-product__type-label">Новая</span>
+                  <span class="product-card-type__item-label">Новая</span>
                 </div>
               </div>
-              <div class="card-product__model">
-                <a href="#" class="card-product__model-link">
-                  <img src="img/tire3.jpg" alt="Антифриз Fosser Antifreeze" class="card-product__image">
+              <div class="product-card-model">
+                <a href="#" class="product-card-model__link">
+                  <img src="img/tire3.jpg" alt="Антифриз Fosser Antifreeze">
                 </a>
               </div>
             </div>
-              <div class="card-product-promo-list">
-              <div class="card-product__promo-wrap promo-wrap--new">
-              <div class="card-product__promo">
-                <span class="card-product__status card-product__status--new">Новинка</span>
-                <span class="card-product__status-shadow"></span>
+              <div class="product-card-promo">
+              <div class="product-card-promo-wrap promo-wrap--new">
+              <div class="product-card-promo-item">
+                <span class="product-card-promo-item__status status--new">Новинка</span>
+                <span class="product-card-promo-item__shadow"></span>
               </div>
               </div>
             </div>
             </div>
-            <div class="card-product__option-container">
-              <div class="card-product__cost">
-                <p class="card-product__price">9570 <span>грн.</span></p>
-                <p class="card-product__price-old">12 250 грн.</p>
+            <div class="product-card-option-container">
+              <div class="product-card-option__cost">
+                <p class="product-card-option__price">9570 <span>грн.</span></p>
+                <p class="product-card-option__price-old">12 250 грн.</p>
               </div>
-              <div class="card-product__buy">
-                <button class="button-submit">Купить товар</button>
+              <div class="product-card-buy">
+                <button class="button-submit button button--gradient" type="button">
+                  <span class="button__text button__text--default">Купить товар</span>
+                  <span class="button__icon"></span>
+                </button>
               </div>
-              <div class="card-product__actions">
-                <a class="card-product__actions-link" href="#">
-                  <span class="card-product__actions-compare"></span>
-                  <span class="card-product__actions-underline">Cравнить товар</span>
+              <div class="product-card-actions">
+                <a class="product-card-actions__link" href="#">
+                  <span class="product-card-actions__link-compare"></span>
+                  <span class="product-card-actions__link-underline">Cравнить товар</span>
                 </a>
-                <a class="card-product__actions-link" href="#">
-                  <span class="card-product__actions-favorite"></span>
-                  <span class="card-product__actions-underline">В избранное</span>
+                <a class="product-card-actions__link" href="#">
+                  <span class="product-card-actions__link-favorite"></span>
+                  <span class="product-card-actions__link-underline">В избранное</span>
               </a>
               </div>
             </div>
           </article>
-          <article class="main-product__card">
-            <div class="main-product__card-container">
-            <span class="main-product__card-label">Mark</span>
-            <h3 class="main-product__card-title"><a class="main-product__title-link" href="#">Антифриз Fosser Antifreeze<br>
+          <article class="product-card">
+            <div class="product-card-container">
+            <span class="product-card-label">Mark</span>
+            <h3 class="product-card-title"><a class="product-card-title__link" href="#">Антифриз Fosser Antifreeze<br>
             FA 12 Readymix 1 л Concentrat, Germany</a></h3>
-            <div class="main-product__card-rating">
-              <a href="#" class="main-product__card-link">
-                <div class="main-product__stars-wrapper">
+            <div class="product-card-info">
+              <a href="#" class="product-card-info__link">
+                <div class="product-card-info__stars">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                   <img src="img/star.png" alt="raiting" width="15" height="14">
                 </div>
-              <span class="main-product__card-reviews">Отзывы (10)</span>
+              <span class="product-card-info__reviews">Отзывы (10)</span>
               </a>
-              <span class="main-product__card-available">В наличии: 24 шт.</span>
+              <span class="product-card-info__available">В наличии: 24 шт.</span>
             </div>
-            <div class="main-product__card-product">
-              <div class="card-product__wrapper">
-                <div class="card-product__type">
+            <div class="product-card-type">
+              <div class="product-card-type__wrapper">
+                <div class="product-card-type__item">
                   <img src="img/summer.png" alt="Летняя шина" width="38" height="38">
-                  <span class="card-product__type-label">Летняя</span>
+                  <span class="product-card-type__item-label">Летняя</span>
                 </div>
-                <div class="card-product__type">
+                <div class="product-card-type__item">
                   <img src="img/car.png" alt="Легковая машина" width="53" height="26">
-                  <span class="card-product__type-label">Легковая</span>
+                  <span class="product-card-type__item-label">Легковая</span>
                 </div>
               </div>
-              <div class="card-product__model">
-                <a href="#" class="card-product__model-link">
-                  <img src="img/tire4.jpg" alt="Антифриз Fosser Antifreeze" class="card-product__image">
+              <div class="product-card-model">
+                <a href="#" class="product-card-model__link">
+                  <img src="img/tire4.jpg" alt="Антифриз Fosser Antifreeze">
                 </a>
               </div>
             </div>
             </div>
-            <div class="card-product__option-container">
-              <div class="card-product__cost">
-                <p class="card-product__price">599 <span>грн.</span></p>
+            <div class="product-card-option-container">
+              <div class="product-card-option__cost">
+                <p class="product-card-option__price">599 <span>грн.</span></p>
               </div>
-              <div class="card-product__buy">
-                <button class="button-submit">Купить товар</button>
+              <div class="product-card-buy">
+                <button class="button-submit button button--gradient" type="button">
+                  <span class="button__text button__text--default">Купить товар</span>
+                  <span class="button__icon"></span>
+                </button>
               </div>
-              <div class="card-product__actions">
-                <a class="card-product__actions-link" href="#">
-                  <span class="card-product__actions-compare"></span>
-                  <span class="card-product__actions-underline">Cравнить товар</span>
+              <div class="product-card-actions">
+                <a class="product-card-actions__link" href="#">
+                  <span class="product-card-actions__link-compare"></span>
+                  <span class="product-card-actions__link-underline">Cравнить товар</span>
                 </a>
-                <a class="card-product__actions-link" href="#">
-                  <span class="card-product__actions-favorite"></span>
-                  <span class="card-product__actions-underline">В избранное</span>
+                <a class="product-card-actions__link" href="#">
+                  <span class="product-card-actions__link-favorite"></span>
+                  <span class="product-card-actions__link-underline">В избранное</span>
                 </a>
               </div>
             </div>
@@ -554,7 +628,9 @@
                 <form class="main-footer__subscribe-form" action="" method="post">
                   <label for="subscribe-email" class="visually-hidden">Форма подписки</label>
                   <input type="email" id='subscribe-email' placeholder="Укажите свой email для подписки">
-                  <button class="button" type="submit">Подписаться</button>
+                <button class="button-subscribe button button--default" type="button">
+                  <span class="button__text button__text--default">Подписаться</span>
+                </button>
                 </form>
               </div>
           </div>
@@ -597,13 +673,13 @@
             <span class="main-footer__copywrite">&copy; Copyright 2017. Тестовое задание Wezom</span>
           </div>
           <div class="main-footer__social">
-            <a href="#" class="main-footer__social-link main-footer__social-link--vk">Вконтакте</a>
-            <a href="#" class="main-footer__social-link main-footer__social-link--fb">Фейсбук</a>
-            <a href="#" class="main-footer__social-link main-footer__social-link--tw">Твиттер</a>
-            <a href="#" class="main-footer__social-link main-footer__social-link--youtube">Ютуб</a>
+            <a class="main-footer__social-link main-footer__social-link--vk" href="#" target="_blank">Вконтакте</a>
+            <a class="main-footer__social-link main-footer__social-link--fb" href="#" target="_blank">Фейсбук</a>
+            <a class="main-footer__social-link main-footer__social-link--tw" href="#" target="_blank">Твиттер</a>
+            <a class="main-footer__social-link main-footer__social-link--youtube" href="#" target="_blank">Ютуб</a>
           </div>
           <div class="main-footer__social-developer">
-            <a href="#" class="main-footer__developer-link">
+            <a class="main-footer__developer-link" href="#" target="_blank">
               <span class="main-footer__developer-logo">
                 <img src="img/logo-dev.png" alt="Wezom" width="42" height="15">
               </span>
@@ -640,16 +716,18 @@
             <a class="modal-enter__remember-link" href="#">Забыли пароль?</a>
             <a class="modal-enter__remember-link" href="#">Регистрация</a>
           </div>
-        <button class="modal-enter__form-button" type="button">Войти в личный кабинет</button>
+            <button class="modal-enter__form-button button button--enter-form" type="button">
+              <span class="button__text button__text--default text--reset">Войти в личный кабинет</span>
+            </button>
        </form>
      </div>
      <div class="modal-enter__social">
        <h2 class="modal-title">Войти с помощью</h2>
        <div class="modal-enter__social-wrap">
-          <a class="modal-enter__social-account modal-enter__social--facebook" href="#">Facebook
+          <a class="modal-enter__social-account modal-enter__social--facebook" href="#" target="_blank">Facebook
             </a>
-          <a class="modal-enter__social-account modal-enter__social--twitter" href="#">Twitter</a>
-          <a class="modal-enter__social-account modal-enter__social--google" href="#">Google</a>
+          <a class="modal-enter__social-account modal-enter__social--twitter" href="#" target="_blank">Twitter</a>
+          <a class="modal-enter__social-account modal-enter__social--google" href="#" target="_blank">Google</a>
         </div>
      </div>
      <button class="modal-enter__button-close" type="button">Закрыть</button>
@@ -661,9 +739,12 @@
        <label class="modal-label" for="callback">Номер телефона</label>
        <input class="modal-input" id="callback" type="tel" placeholder="+38(0__) ___ - __ - __ ">
      </div>
-     <div class="modal-callback-btn">
-      <button class="button modal-callback--button" type="button">Перезвоните мне</button>
-      <button class="modal-enter__button-close" type="button">Закрыть</button>
+      <div class="modal-callback-btn">
+      <!-- <button class="button modal-callback--button" type="button">Перезвоните мне</button> -->
+        <button class="modal-callback-button button button--default" type="button">
+          <span class="button__text button__text--default text--reset">Перезвоните мне</span>
+        </button>
+        <button class="modal-enter__button-close" type="button">Закрыть</button>
       </div>
    </div>
   </body>
