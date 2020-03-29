@@ -6,14 +6,18 @@
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,700i,900,900i&display=swap&subset=cyrillic" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <header class="page-header">
       <div class="page-header__wrapper">
-        <nav class="main-nav container">
-            <div class="main-nav__wrapper ">
+        <nav class="main-nav main-nav--no-js container">
+          <button class="main-nav__button-close button-close" type="button">
+            <span class="visually-hidden">Открыть меню</span>
+          </button>
+            <div class="main-nav__wrapper">
               <ul class="main-nav__list menu-list">
-                <li class="menu-list__item">
+                <li class="menu-list__item menu-list__item--active">
                   <a class="menu-list__link menu-list__link--indent">Главная</a>
                 </li>
                   <li class="menu-list__item">
@@ -52,7 +56,8 @@
             <a class="phones-list__item" href="tel:+3809817000740">+380 98 170 00 740</a>
           </div>
           <button class="header-phones__button button button--default" type="button">
-            <span class="button__icon-phone"></span>
+            <span class="button__icon-phone">
+            </span>
             <span class="button__text button__text--small">Перезвонить мне</span>
           </button>
         </div>
@@ -93,12 +98,17 @@
       <section class="main-menu">
         <h2 class="visually-hidden">Категории товаров</h2>
         <div class="main-menu__trigger">
-          <button class="main-menu__burger button button--default" type="button">
+          <button class="main-menu__burger button button--gradient" type="button">
             <span class="visually-hidden">Открыть меню</span>
+            <div class="main-menu__icon-wrapper">
+              <span class="main-menu__line main-menu__line--one"></span>
+              <span class="main-menu__line main-menu__line--two"></span>
+              <span class="main-menu__line main-menu__line--three"></span>
+            </div>
+            <span class="button__text button__text--big">Меню</span>
           </button>
-          <p class="main-menu__title">Меню</p>
         </div>
-        <div class="page-filter__aside">
+        <div class="page-filter__aside page-filter__aside--no-js">
           <ul class="page-filter__aside-list aside-list">
             <li class="aside-list__item">
               <a class="aside-list__link" href="#">Ссылка 1</a>
@@ -126,26 +136,26 @@
       </section>
       <section class="page-filter">
         <h2 class="visually-hidden">Поиск с помощью фильтра</h2>
-        <div class="main-menu__search">
-          <form class="main-menu__form" action="" method="post">
+        <div class="page-search">
+          <form class="page-search__form" action="" method="post">
             <label for="search" class="visually-hidden">Поиск</label>
-            <input class="search-form" id="search" type="search" name="search" placeholder="Поиск по сайту">
-              <div class="main-menu__category">
+            <input class="page-search__form-input" id="search" type="search" name="search" placeholder="Поиск по сайту">
+              <div class="page-search__category">
                 <select id="sort-category" class="visually-hidden" name="sort-category">
                   <option selected value="">Ссылка 1</option>
                   <option value="1">Ссылка 2</option>
                   <option value="2">Ссылка 3</option>
                 </select>
-                <div id="main-menu__category-select">
-                  <span class="main-menu__category-current" data-value="">Все категории</span>
-                  <ul class="main-menu__category-full category-full">
+                <div id="page-search__category-select">
+                  <span class="page-search__category-current" data-value="">Все категории</span>
+                  <ul class="page-search__category-full category-full">
                     <li class="category-full__item" data-value="1"><a href="#">Ссылка 1</a></li>
                     <li class="category-full__item" data-value="2"><a href="#">Ссылка 2</a></li>
                     <li class="category-full__item" data-value="3"><a href="#">Ссылка 3</a></li>
                   </ul>
                 </div>
             </div>
-            <button class="main-menu__button-search button button--default">
+            <button class="page-search__button-search button button--default">
               <span class="button__text button__text--big">Поиск</span>
             </button>
           </form>
@@ -156,166 +166,170 @@
               <li class="filter-list__item filter-list__item--active"><a class="filter-list__link filter-list__link--car filter-list__car--active" href="#">Ссылка 1</a></li>
               <li class="filter-list__item"><a class="filter-list__link filter-list__link--truck" href="#">Ссылка 2</a></li>
               <li class="filter-list__item"><a class="filter-list__link filter-list__link--rim" href="#">Ссылка 3</a></li>
-              <li class="filter-list__item filter-list__link--oil"><a class="filter-list__link filter-list__link--oil" href="#">Ссылка 4</a></li>
+              <li class="filter-list__item"><a class="filter-list__link filter-list__link--oil" href="#">Ссылка 4</a></li>
               <li class="filter-list__item"><a class="filter-list__link filter-list__link--battery" href="#">Ссылка 5</a></li>
             </ul>
           </div>
-          <div class="filter-tab__wrapper">
-              <p class="filter-tab__strip">
-                <label class="filter-tab__label"><input type="radio" name="toggle" checked>
-                  <span class="filter-tab-button">Tab 1</span>
+          <div class="page-filter__select-block">
+          <div class="page-filter__tab-wrapper">
+              <p class="page-filter__tab-strip">
+                <label class="page-filter__tab-label"><input type="radio" name="toggle" checked>
+                  <span class="page-filter__tab-button">Tab 1</span>
                 </label>
-                <label class="filter-tab__label"><input type="radio" name="toggle">
-                  <span class="filter-tab-button">Tab 2</span>
+                <label class="page-filter__tab-label"><input type="radio" name="toggle">
+                  <span class="page-filter__tab-button">Tab 2</span>
                 </label>
               </p>
           </div>
-          <div class="filter-select__wrapper">
-            <form class="filter-select__form-wrapper" action="" method="get">
-              <div class="filter-select__form">
-                <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+          <div class="page-filter__select-wrapper">
+            <form class="page-filter__select-form-wrapper" action="" method="get">
+              <div class="page-filter__select-form-layout">
+              <div class="page-filter__select-form">
+                <select name="page-filter-select__options" id="page-filter-select__options" class="visually-hidden">
                   <option value="" selected>Select1</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
                 </select>
-                <div class="filter-select__title" data-value="">
-                  <span class="filter-select__title-current">Select1</span>
-                  <span class="filter-select__title--underline"></span>
+                <div class="page-filter__select-title" data-value="">
+                  <span class="page-filter__select-title-current">Select1</span>
+                  <span class="page-filter__select-title--underline"></span>
                 </div>
-                <ul class="filter-select__list select-list">
-                  <li class="filter-select__item" data-value="">Select1</li>
-                  <li class="filter-select__item" data-value="1">Item 1</li>
-                  <li class="filter-select__item">Item 2</li>
+                <ul class="page-filter__select-list select-list">
+                  <li class="select-list__item" data-value="">Select1</li>
+                  <li class="select-list__item" data-value="1">Item 1</li>
+                  <li class="select-list__item">Item 2</li>
                 </ul>
               </div>
-              <div class="filter-select__form">
-                <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+              <div class="page-filter__select-form">
+                <select name="page-filter-select__options" id="page-filter-select__options" class="visually-hidden">
                   <option value="" selected>Select2</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
                 </select>
-                <div class="filter-select__title" data-value="">
-                  <span class="filter-select__title-current">Select2</span>
-                  <span class="filter-select__title--underline"></span>
+                <div class="page-filter__select-title" data-value="">
+                  <span class="page-filter__select-title-current">Select2</span>
+                  <span class="page-filter__select-title--underline"></span>
                 </div>
-                <ul class="filter-select__list select-list">
-                  <li class="filter-select__item" data-value="">Select2</li>
-                  <li class="filter-select__item" data-value="1">Item 1</li>
-                  <li class="filter-select__item" data-value="2">Item 2</li>
+                <ul class="page-filter__select-list select-list">
+                  <li class="select-list__item" data-value="">Select2</li>
+                  <li class="select-list__item" data-value="1">Item 1</li>
+                  <li class="select-list__item" data-value="2">Item 2</li>
                 </ul>
               </div>
-                <div class="filter-select__form">
-                  <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+                <div class="page-filter__select-form">
+                  <select name="page-filter-select__options" id="page-filter-select__options" class="visually-hidden">
                     <option value="" selected>Select3</option>
                     <option value="1">Item 1</option>
                     <option value="2">Item 2</option>
                 </select>
-                  <div class="filter-select__title" data-value="">
-                    <span class="filter-select__title-current">Select3</span>
-                    <span class="filter-select__title--underline"></span>
+                  <div class="page-filter__select-title" data-value="">
+                    <span class="page-filter__select-title-current">Select3</span>
+                    <span class="page-filter__select-title--underline"></span>
                   </div>
-                  <ul class="filter-select__list select-list">
-                    <li class="filter-select__item" data-value="">Select3</li>
-                    <li class="filter-select__item" data-value="1">Item 1</li>
-                    <li class="filter-select__item" data-value="2">Item 2</li>
+                  <ul class="page-filter__select-list select-list">
+                    <li class="select-list__item" data-value="">Select3</li>
+                    <li class="select-list__item" data-value="1">Item 1</li>
+                    <li class="select-list__item" data-value="2">Item 2</li>
                   </ul>
               </div>
-                <div class="filter-select__form">
-                  <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+                <div class="page-filter__select-form">
+                  <select name="page-filter-select__options" id="page-filter__select-options" class="visually-hidden">
                     <option value="" selected>Select4</option>
                     <option value="1">Item 1</option>
                     <option value="2">Item 2</option>
                 </select>
-                  <div class="filter-select__title" data-value="">
-                    <span class="filter-select__title-current">Select4</span>
-                    <span class="filter-select__title--underline"></span>
+                  <div class="page-filter__select-title" data-value="">
+                    <span class="page-filter__select-title-current">Select4</span>
+                    <span class="page-filter__select-title--underline"></span>
                   </div>
-                  <ul class="filter-select__list select-list">
-                    <li class="filter-select__item" data-value="">Select4</li>
-                    <li class="filter-select__item" data-value="1">Item 1</li>
-                    <li class="filter-select__item" data-value="2">Item 2</li>
+                  <ul class="page-filter__select-list select-list">
+                    <li class="select-list__item" data-value="">Select4</li>
+                    <li class="select-list__item" data-value="1">Item 1</li>
+                    <li class="select-list__item" data-value="2">Item 2</li>
                   </ul>
               </div>
-              <div class="filter-select__form">
-                <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+              <div class="page-filter__select-form">
+                <select name="page-filter-select__options" id="page-filter__select-options" class="visually-hidden">
                   <option value="" selected>Select5</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
                 </select>
-                  <div class="filter-select__title" data-value="">
-                    <span class="filter-select__title-current">Select5</span>
-                    <span class="filter-select__title--underline"></span>
+                  <div class="page-filter__select-title" data-value="">
+                    <span class="page-filter__select-title-current">Select5</span>
+                    <span class="page-filter__select-title--underline"></span>
                   </div>
-                  <ul class="filter-select__list select-list">
-                    <li class="filter-select__item" data-value="">Select5</li>
-                    <li class="filter-select__item" data-value="1">Item 1</li>
-                    <li class="filter-select__item" data-value="2">Item 2</li>
+                  <ul class="page-filter__select-list select-list">
+                    <li class="select-list__item" data-value="">Select5</li>
+                    <li class="select-list__item" data-value="1">Item 1</li>
+                    <li class="select-list__item" data-value="2">Item 2</li>
                   </ul>
               </div>
-              <div class="filter-select__form">
-                <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+              <div class="page-filter__select-form">
+                <select name="page-filter-select__options" id="page-filter__select-options" class="visually-hidden">
                   <option value="" selected>Select6</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
                 </select>
-                  <div class="filter-select__title" data-value="">
-                    <span class="filter-select__title-current">Select6</span>
-                    <span class="filter-select__title--underline"></span>
+                  <div class="page-filter__select-title" data-value="">
+                    <span class="page-filter__select-title-current">Select6</span>
+                    <span class="page-filter__select-title--underline"></span>
                   </div>
-                  <ul class="filter-select__list select-list">
-                    <li class="filter-select__item" data-value="">Select6</li>
-                    <li class="filter-select__item" data-value="1">Item 1</li>
-                    <li class="filter-select__item" data-value="2">Item 2</li>
+                  <ul class="page-filter__select-list select-list">
+                    <li class="select-list__item" data-value="">Select6</li>
+                    <li class="select-list__item" data-value="1">Item 1</li>
+                    <li class="select-list__item" data-value="2">Item 2</li>
                   </ul>
               </div>
-              <div class="filter-select__form">
-                <select name="filter-select__options" id="filter-select__options" class="visually-hidden">
+              <div class="page-filter__select-form">
+                <select name="page-filter-select__options" id="page-filter__select-options" class="visually-hidden">
                   <option value="" selected>Select7</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
                 </select>
-                  <div class="filter-select__title" data-value="">
-                    <span class="filter-select__title-current">Select7</span>
-                    <span class="filter-select__title--underline"></span>
+                  <div class="page-filter__select-title" data-value="">
+                    <span class="page-filter__select-title-current">Select7</span>
+                    <span class="page-filter__select-title--underline"></span>
                   </div>
-                  <ul class="filter-select__list select-list">
-                    <li class="filter-select__item" data-value="">Select7</li>
-                    <li class="filter-select__item" data-value="1">Item 1</li>
-                    <li class="filter-select__item" data-value="2">Item 2</li>
+                  <ul class="page-filter__select-list select-list">
+                    <li class="select-list__item" data-value="">Select7</li>
+                    <li class="select-list__item" data-value="1">Item 1</li>
+                    <li class="select-list__item" data-value="2">Item 2</li>
                   </ul>
               </div>
-              <div class="filter-select__form">
-                <div class="filter-select__form-cost">
-                  <div class="filter-select__cost-wrapper">
-                    <label for="min_cost" class="filter-select__form-label">Цена</label>
-                    <p class="filter-cost__wrapper">
-                      <input class="filter-cost" id="min_cost" type="number" name="min-cost" min="50" value="50">
-                    <span class="filter-cost_underline"></span>
+              <div class="page-filter__select-form">
+                <label for="min_cost" class="page-filter__select-form-label">Цена</label>
+                <div class="page-filter__select-form-cost">
+                  <div class="page-filter__select-cost-wrapper">
+                    <p class="page-filter__cost-wrapper">
+                      <input class="page-filter__cost" id="min_cost" type="number" name="min-cost" min="50" value="50">
+                    <span class="page-filter__cost-underline"></span>
                   </p>
                   </div>
-                  <div class="filter-select__cost-wrapper">
+                  <div class="page-filter__select-cost-wrapper">
                     <label for="max-cost" class="visually-hidden">Максимальная цена</label>
-                    <p class="filter-cost__wrapper">
-                      <input class="filter-cost" id="max-cost" type="number" name="max-cost" max="250000" placeholder="250000">
-                      <span class="filter-cost_underline"></span>
+                    <p class="page-filter__cost-wrapper">
+                      <input class="page-filter__cost" id="max-cost" type="number" name="max-cost" max="250000" placeholder="250000">
+                      <span class="page-filter__cost-underline"></span>
                     </p>
                   </div>
                 </div>
               </div>
+              </div>
             </form>
-            <div class="filter-select__buttons">
-              <p class="filter-select__buttons-wrap">
-                <button class="filter-select__clear-btn button button--reset" type="button">
+            <div class="page-filter__select-buttons">
+              <p class="page-filter__select-buttons-wrap">
+                <button class="page-filter__select-clear-btn button button--reset" type="button">
                   <span class="button__text button__text--default text--reset">Очистить фильтр</span>
-                  <span class="filter-select__clear-cross"></span>
+                  <span class="page-filter__select-clear-cross"></span>
                 </button>
               </p>
-              <p class="filter-select__buttons-wrap">
+              <p class="page-filter__select-buttons-wrap">
                 <button class="button-submit button button--gradient" type="button">
                   <span class="button__text button__text--default">Применить фильтр</span>
                 </button>
               </p>
             </div>
+          </div>
           </div>
         </div>
       </section> 
@@ -324,7 +338,11 @@
         <div class="product-top">
           <h2 class="product-top__title">Карточки товаров</h2>
           <a href="#" class="product-top__link">
-          <span class="product-top__underline">Ссылка в каталог</span></a>
+            <span class="product-top__underline">Ссылка в каталог</span>
+            <span class="product-top__icon">
+              <img src="img/arrow_link.png" alt="Перейти в каталог" width="15" height="3">
+            </span>
+          </a>
         </div>
         <div class="product-wrapper">
           <article class="product-card">
@@ -399,13 +417,17 @@
                 </button>
             </div>
             <div class="product-card-actions">
-              <a class="product-card-actions__link" href="#">
-                <span class="product-card-actions__link-compare"></span>
-                <span class="product-card-actions__link-underline">Cравнить товар</span>
+              <a class="product-card-actions__link" href="#" aria-label="Сравнить товар">
+                <span class="product-card-actions__icon">
+                  <img src="img/compare2.png" alt="Сравнить товар" width="34" height="26">
+                </span>
+                <span class="product-card-actions__text product-card-actions__link-underline">Cравнить товар</span>
               </a>
-              <a class="product-card-actions__link" href="#">
-                <span class="product-card-actions__link-favorite"></span>
-                <span class="product-card-actions__link-underline">В избранное</span>
+              <a class="product-card-actions__link" href="#" aria-label="Добавить в избранное">
+                <span class="product-card-actions__icon">
+                  <img src="img/favorite2.png" alt="Избранный товар" width="30" height="29">
+                </span>
+                <span class="product-card-actions__text product-card-actions__link-underline">В избранное</span>
               </a>
             </div>
             </div>
@@ -460,7 +482,7 @@
                 </div>
             </div>
             </div>
-            <div class="product-card-option">
+            <div class="product-card-option-container">
               <div class="product-card-option__cost">
                 <p class="product-card-option__price">599 <span>грн.</span></p>
                 <p class="product-card-option__price-old">1250 грн.</p>
@@ -472,13 +494,17 @@
                 </button>
               </div>
               <div class="product-card-actions">
-                <a class="product-card-actions__link" href="#">
-                  <span class="product-card-actions__link-compare"></span>
-                  <span class="product-card-actions__link-underline">Cравнить товар</span>
+                <a class="product-card-actions__link" href="#" aria-label="Сравнить товар">
+                  <span class="product-card-actions__icon">
+                  <img src="img/compare2.png" alt="Сравнить товар" width="34" height="26">
+                </span>
+                  <span class="product-card-actions__text product-card-actions__link-underline">Cравнить товар</span>
               </a>
-                <a class="product-card-actions__link" href="#">
-                  <span class="product-card-actions__link-favorite"></span>
-                  <span class="product-card-actions__link-underline">В избранное</span>
+                <a class="product-card-actions__link" href="#" aria-label="Добавить в избранное">
+                <span class="product-card-actions__icon">
+                  <img src="img/favorite2.png" alt="Избранный товар" width="30" height="29">
+                </span>
+                  <span class="product-card-actions__text product-card-actions__link-underline">В избранное</span>
               </a>
               </div>
             </div>
@@ -543,13 +569,17 @@
                 </button>
               </div>
               <div class="product-card-actions">
-                <a class="product-card-actions__link" href="#">
-                  <span class="product-card-actions__link-compare"></span>
-                  <span class="product-card-actions__link-underline">Cравнить товар</span>
+                <a class="product-card-actions__link" href="#" aria-label="Сравнить товар">
+                  <span class="product-card-actions__icon">
+                  <img src="img/compare2.png" alt="Сравнить товар" width="34" height="26">
+                </span>
+                  <span class="product-card-actions__text product-card-actions__link-underline">Cравнить товар</span>
                 </a>
-                <a class="product-card-actions__link" href="#">
-                  <span class="product-card-actions__link-favorite"></span>
-                  <span class="product-card-actions__link-underline">В избранное</span>
+                <a class="product-card-actions__link" href="#" aria-label="Добавить в избранное">
+                <span class="product-card-actions__icon">
+                  <img src="img/favorite2.png" alt="Избранный товар" width="30" height="29">
+                </span>
+                  <span class="product-card-actions__text product-card-actions__link-underline">В избранное</span>
               </a>
               </div>
             </div>
@@ -601,13 +631,17 @@
                 </button>
               </div>
               <div class="product-card-actions">
-                <a class="product-card-actions__link" href="#">
-                  <span class="product-card-actions__link-compare"></span>
-                  <span class="product-card-actions__link-underline">Cравнить товар</span>
+                <a class="product-card-actions__link" href="#" aria-label="Сравнить товар">
+                  <span class="product-card-actions__icon">
+                  <img src="img/compare2.png" alt="Сравнить товар" width="34" height="26">
+                </span>
+                  <span class="product-card-actions__text product-card-actions__link-underline">Cравнить товар</span>
                 </a>
-                <a class="product-card-actions__link" href="#">
-                  <span class="product-card-actions__link-favorite"></span>
-                  <span class="product-card-actions__link-underline">В избранное</span>
+                <a class="product-card-actions__link" href="#" aria-label="Добавить в избранное">
+                <span class="product-card-actions__icon">
+                  <img src="img/favorite2.png" alt="Избранный товар" width="30" height="29">
+                </span>
+                  <span class="product-card-actions__text product-card-actions__link-underline">В избранное</span>
                 </a>
               </div>
             </div>
@@ -627,13 +661,14 @@
               <p class="main-footer__subscribe-mailing">Подписывайтесь на рассылку</p>
                 <form class="main-footer__subscribe-form" action="" method="post">
                   <label for="subscribe-email" class="visually-hidden">Форма подписки</label>
-                  <input type="email" id='subscribe-email' placeholder="Укажите свой email для подписки">
+                  <input id='subscribe-email' type="email" placeholder="Укажите свой email для подписки">
                 <button class="button-subscribe button button--default" type="button">
                   <span class="button__text button__text--default">Подписаться</span>
                 </button>
                 </form>
               </div>
           </div>
+          <div class="main-footer__block-links">
           <div class="main-footer__block">
             <div class="main-footer__subscribe-title">
               <b class="main-footer__title">Блок ссылок 1</b>
@@ -664,7 +699,9 @@
                 <li class="footer-list__item"><a class="footer-list__item-link" href="#">Ссылка 1</a></li>
                 <li class="footer-list__item"><a class="footer-list__item-link" href="#">Ссылка 2</a></li>
                 <li class="footer-list__item"><a class="footer-list__item-link" href="#">Ссылка 3</a></li>
-                <li class="footer-list__item"><a class="footer-list__item-link" href="#">Ссылка 4</a></li>        </ul>
+                <li class="footer-list__item"><a class="footer-list__item-link" href="#">Ссылка 4</a></li>
+            </ul>
+          </div>
           </div>
         </section>
         <section class="main-footer__social-info">
@@ -672,21 +709,23 @@
             <span class="main-footer__logo"><img src="img/logo2.png" alt="Логотип Test" width="195" height="37"></span>
             <span class="main-footer__copywrite">&copy; Copyright 2017. Тестовое задание Wezom</span>
           </div>
-          <div class="main-footer__social">
-            <a class="main-footer__social-link main-footer__social-link--vk" href="#" target="_blank">Вконтакте</a>
-            <a class="main-footer__social-link main-footer__social-link--fb" href="#" target="_blank">Фейсбук</a>
-            <a class="main-footer__social-link main-footer__social-link--tw" href="#" target="_blank">Твиттер</a>
-            <a class="main-footer__social-link main-footer__social-link--youtube" href="#" target="_blank">Ютуб</a>
-          </div>
-          <div class="main-footer__social-developer">
-            <a class="main-footer__developer-link" href="#" target="_blank">
-              <span class="main-footer__developer-logo">
-                <img src="img/logo-dev.png" alt="Wezom" width="42" height="15">
-              </span>
-              <span class="main-footer__developer-title">Разработка тестового<br>
-                <span>Wezom Agency</span>
-              </span>
-            </a>
+          <div class="main-footer__communication">
+            <div class="main-footer__social">
+              <a class="main-footer__social-link main-footer__social-link--vk" href="#" target="_blank">Вконтакте</a>
+              <a class="main-footer__social-link main-footer__social-link--fb" href="#" target="_blank">Фейсбук</a>
+              <a class="main-footer__social-link main-footer__social-link--tw" href="#" target="_blank">Твиттер</a>
+              <a class="main-footer__social-link main-footer__social-link--youtube" href="#" target="_blank">Ютуб</a>
+            </div>
+            <div class="main-footer__social-developer">
+              <a class="main-footer__developer-link" href="#" target="_blank">
+                <span class="main-footer__developer-logo">
+                  <img src="img/logo-dev.png" alt="Wezom" width="42" height="15">
+                </span>
+                <span class="main-footer__developer-title">Разработка тестового<br>
+                  <span>Wezom Agency</span>
+                </span>
+              </a>
+            </div>
           </div>
         </section>
       </div>
@@ -740,7 +779,6 @@
        <input class="modal-input" id="callback" type="tel" placeholder="+38(0__) ___ - __ - __ ">
      </div>
       <div class="modal-callback-btn">
-      <!-- <button class="button modal-callback--button" type="button">Перезвоните мне</button> -->
         <button class="modal-callback-button button button--default" type="button">
           <span class="button__text button__text--default text--reset">Перезвоните мне</span>
         </button>
