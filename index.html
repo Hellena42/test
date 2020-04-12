@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,700i,900,900i&display=swap&subset=cyrillic" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="scripts/magnific_popup/magnific-popup.css">
   </head>
   <body>
     <header class="page-header">
@@ -36,7 +37,7 @@
               </ul>
               <ul class="main-nav__list user-list">
                 <li class="user-list__item">
-                  <a class="user-list__button button button--default">
+                  <a class="user-list__button button button--default" href='#modal-enter'>
                     <span class="button__text button__text--small">
                       Вход
                     </span>
@@ -56,11 +57,11 @@
             <a class="phones-list__item" href="tel:+3809817000740">+380 98 170 00 740</a>
             <a class="phones-list__item" href="tel:+3809817000740">+380 98 170 00 740</a>
           </div>
-          <button class="header-phones__button button button--default" type="button">
+          <a href="#modal-callback" class="header-phones__button button button--default" type="button">
             <span class="button__icon-phone">
             </span>
             <span class="button__text button__text--small">Перезвонить мне</span>
-          </button>
+          </a>
         </div>
         <div class="header-actions">
           <ul class="header-actions__list actions-list">
@@ -109,8 +110,9 @@
             <span class="button__text button__text--big">Меню</span>
           </button>
         </div>
-        <div class="page-filter__aside page-filter__aside--no-js">
+        <div class="page-filter__aside">
           <ul class="page-filter__aside-list aside-list">
+            <li class="aside-list__item">Меню</li>
             <li class="aside-list__item">
               <a class="aside-list__link" href="#">Ссылка 1</a>
             </li>
@@ -132,6 +134,7 @@
             <li class="aside-list__item">
               <a class="aside-list__link" href="#">Ссылка 7</a>
             </li>
+            <button class="modal-enter__button-close" type="button">Закрыть</button>
           </ul>
         </div>      
       </section>
@@ -161,8 +164,18 @@
             </button>
           </form>
         </div>
+        <div class="page-filter-button">
+            <button class="page-filter__hidden-btn button button--default">
+              <span class="visually-hidden">Фильтр</span>
+            </button>
+        </div>
         <div class="page-filter__wrapper">
           <div class="page-filter__menu">
+            <div class="page-filter__menu-hidden">
+              <h2 class="page-filter__title-hidden">Фильтр</h2>
+              <button class="modal-enter__button-close" type="button">Закрыть</button>
+            </div>
+            <div class="page-filter__menu-list">
             <ul class="menu-filter__list filter__list">
               <li class="filter-list__item filter-list__item--active"><a class="filter-list__link filter-list__link--car filter-list__car--active" href="#">Ссылка 1</a></li>
               <li class="filter-list__item"><a class="filter-list__link filter-list__link--truck" href="#">Ссылка 2</a></li>
@@ -170,6 +183,7 @@
               <li class="filter-list__item"><a class="filter-list__link filter-list__link--oil" href="#">Ссылка 4</a></li>
               <li class="filter-list__item"><a class="filter-list__link filter-list__link--battery" href="#">Ссылка 5</a></li>
             </ul>
+          </div>
           </div>
           <div class="page-filter__select-block">
           <div class="page-filter__tab-wrapper">
@@ -660,9 +674,9 @@
             <div class="main-footer__action">
               <p class="main-footer__subscribe-news">Будьте в курсе новостей и новинок!</p>
               <p class="main-footer__subscribe-mailing">Подписывайтесь на рассылку</p>
-                <form class="main-footer__subscribe-form" action="" method="post">
+                <form id="main-footer__subscribe-action" class="form-validate main-footer__subscribe-form" action="" method="post">
                   <label for="subscribe-email" class="visually-hidden">Форма подписки</label>
-                  <input id='subscribe-email' type="email" placeholder="Укажите свой email для подписки">
+                  <input id='subscribe-email' type="email" name="email" placeholder="Укажите свой email для подписки" required>
                 <button class="button-subscribe button button--default" type="button">
                   <span class="button__text button__text--default">Подписаться</span>
                 </button>
@@ -731,19 +745,20 @@
         </section>
       </div>
    </footer>
-   <div class="modal-overlay"></div>
-   <div class="modal-enter">
+    <div class="modal-overlay"></div>
+   <div class="modal-hidden">
+   <div id="modal-enter">
     <div class="modal-enter__wrapper">
      <div class="modal-enter__signup">
        <h2 class="modal-title">Вход в личный кабинет</h2>
-       <form class="modal-enter__form" action="" method="post">
+       <form class="form-validate modal-enter__form" action="" method="post">
         <div class="modal-form__wrap">
          <label class="modal-label" for="singup_email">Ваш email</label>
-          <input class="modal-input" id="singup_email" type="email" placeholder="mikel_ivanov98@gmail.com">
+          <input class="modal-input" id="singup_email" type="email" name="email" placeholder="mikel_ivanov98@gmail.com" required>
         </div>
         <div class="modal-form__wrap">
           <label class="modal-label" for="singup_password">Пароль</label>
-          <input class="modal-input modal-enter__input--password" id="singup_password" type="password" placeholder="*************">
+          <input class="modal-input modal-enter__input--password" id="singup_password" type="password" name="password" placeholder="*************" required>
         </div>
         <div class="modal-enter__form-remember">
           <input class="modal-enter__checkbox" type="checkbox" id="remember-form">
@@ -756,7 +771,7 @@
             <a class="modal-enter__remember-link" href="#">Забыли пароль?</a>
             <a class="modal-enter__remember-link" href="#">Регистрация</a>
           </div>
-            <button class="modal-enter__form-button button button--enter-form" type="button">
+            <button class="modal-enter__form-button button button--enter-form" type="submit">
               <span class="button__text button__text--default text--reset">Войти в личный кабинет</span>
             </button>
        </form>
@@ -773,19 +788,25 @@
      <button class="modal-enter__button-close" type="button">Закрыть</button>
    </div>
    </div>
-   <div class="modal-callback">
+   <div id="modal-callback">
      <h2 class="modal-title">Перезвоните мне</h2>
-     <div class="modal-form__wrap">
-       <label class="modal-label" for="callback">Номер телефона</label>
-       <input class="modal-input" id="callback" type="tel" placeholder="+38(0__) ___ - __ - __ ">
+     <div class="modal-form__wrapper">
+      <form action="" class="form-validate modal-form">
+         <label class="modal-label" for="callback">Номер телефона</label>
+         <input class="modal-input" name="callback" id="callback" type="tel" placeholder="+38(0__) ___-__-__" required>
      </div>
       <div class="modal-callback-btn">
-        <button class="modal-callback-button button button--default" type="button">
+        <button class="modal-callback-button button button--default" type="submit">
           <span class="button__text button__text--default text--reset">Перезвоните мне</span>
         </button>
+      </form>
         <button class="modal-enter__button-close" type="button">Закрыть</button>
       </div>
    </div>
-   <script src="scripts/script.js"></script>
+   </div>
+   <script src="scripts/magnific_popup/jquery.magnific-popup.js"></script>
+   <script src="scripts/masked_input/jquery.maskedinput.min.js"></script>
+   <script src="scripts/jquery_validation/jquery.validate.min.js"></script>
+   <script src="scripts/scripts.js"></script>
   </body>
 </html>
