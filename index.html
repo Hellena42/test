@@ -37,7 +37,7 @@
               </ul>
               <ul class="main-nav__list user-list">
                 <li class="user-list__item">
-                  <a class="user-list__button button button--default" href='#modal-enter'>
+                  <a class="user-list__button button button--default js-singup" href='#modal-enter'>
                     <span class="button__text button__text--small">
                       Вход
                     </span>
@@ -57,21 +57,22 @@
             <a class="phones-list__item" href="tel:+3809817000740">+380 98 170 00 740</a>
             <a class="phones-list__item" href="tel:+3809817000740">+380 98 170 00 740</a>
           </div>
-          <a href="#modal-callback" class="header-phones__button button button--default" type="button">
+          <button class="header-phones__button button button--default js-callback" data-mfp-src="#modal-callback" type="button">
             <span class="button__icon-phone">
             </span>
             <span class="button__text button__text--small">Перезвонить мне</span>
-          </a>
+          </button>
         </div>
         <div class="header-actions">
           <ul class="header-actions__list actions-list">
             <li class="actions-list__item">
-              <a class="actions-list__link" href="#">
+              <a class="actions-list__link js-action-compare" href="#">
                 <div class="image-wrap">
                   <img src="img/compare.png" alt="Сравнить товары" width="45" height="34">
                 </div>
-                <p class="actions-list__title">Сравнение</p>
+                <p class="actions-list__title js-title-compare">Сравнение</p>
               </a>
+              <span class="actions-list__counter" style="display: none;">0</span>
             </li>
             <li class="actions-list__item">
               <a class="actions-list__link" href="#">
@@ -81,7 +82,7 @@
                   <p class="actions-list__title">Избранное</p>
               </a>
             </li>
-            <li class="actions-list__item actions-list__item--amount">
+            <li class="actions-list__item">
               <a class="actions-list__link" href="#">
                 <div class="image-wrap">
                   <img src="img/basket.png" alt="Корзина" width="40" height="35">
@@ -141,7 +142,7 @@
       <section class="page-filter">
         <h2 class="visually-hidden">Поиск с помощью фильтра</h2>
         <div class="page-search">
-          <form class="page-search__form" action="" method="post">
+          <form class="js-form-validate page-search__form" action="" method="post">
             <label for="search" class="visually-hidden">Поиск</label>
             <input class="page-search__form-input" id="search" type="search" name="search" placeholder="Поиск по сайту">
               <div class="page-search__category">
@@ -197,10 +198,10 @@
               </p>
           </div>
           <div class="page-filter__select-wrapper">
-            <form class="page-filter__select-form-wrapper" action="" method="get">
+            <form class="js-form-validate page-filter__select-form-wrapper" action="" method="get">
               <div class="page-filter__select-form-layout">
               <div class="page-filter__select-form">
-                <select name="page-filter-select__options" id="page-filter-select__options" class="visually-hidden">
+                <select name="page-filter-select__options" class="visually-hidden">
                   <option value="" selected>Select1</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
@@ -216,7 +217,7 @@
                 </ul>
               </div>
               <div class="page-filter__select-form">
-                <select name="page-filter-select__options" id="page-filter-select__options" class="visually-hidden">
+                <select name="page-filter-select__options" class="visually-hidden">
                   <option value="" selected>Select2</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
@@ -232,7 +233,7 @@
                 </ul>
               </div>
                 <div class="page-filter__select-form">
-                  <select name="page-filter-select__options" id="page-filter-select__options" class="visually-hidden">
+                  <select name="page-filter-select__options" class="visually-hidden">
                     <option value="" selected>Select3</option>
                     <option value="1">Item 1</option>
                     <option value="2">Item 2</option>
@@ -248,7 +249,7 @@
                   </ul>
               </div>
                 <div class="page-filter__select-form">
-                  <select name="page-filter-select__options" id="page-filter__select-options" class="visually-hidden">
+                  <select name="page-filter-select__options" class="visually-hidden">
                     <option value="" selected>Select4</option>
                     <option value="1">Item 1</option>
                     <option value="2">Item 2</option>
@@ -264,7 +265,7 @@
                   </ul>
               </div>
               <div class="page-filter__select-form">
-                <select name="page-filter-select__options" id="page-filter__select-options" class="visually-hidden">
+                <select name="page-filter-select__options" class="visually-hidden">
                   <option value="" selected>Select5</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
@@ -280,7 +281,7 @@
                   </ul>
               </div>
               <div class="page-filter__select-form">
-                <select name="page-filter-select__options" id="page-filter__select-options" class="visually-hidden">
+                <select name="page-filter-select__options" class="visually-hidden">
                   <option value="" selected>Select6</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
@@ -296,7 +297,7 @@
                   </ul>
               </div>
               <div class="page-filter__select-form">
-                <select name="page-filter-select__options" id="page-filter__select-options" class="visually-hidden">
+                <select name="page-filter-select__options" class="visually-hidden">
                   <option value="" selected>Select7</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
@@ -316,14 +317,14 @@
                 <div class="page-filter__select-form-cost">
                   <div class="page-filter__select-cost-wrapper">
                     <p class="page-filter__cost-wrapper">
-                      <input class="page-filter__cost" id="min_cost" type="number" name="min-cost" min="50" value="50">
+                      <input class="page-filter__cost" id="min_cost" type="number" name="cost" min="50" value="50" required>
                     <span class="page-filter__cost-underline"></span>
                   </p>
                   </div>
                   <div class="page-filter__select-cost-wrapper">
                     <label for="max-cost" class="visually-hidden">Максимальная цена</label>
                     <p class="page-filter__cost-wrapper">
-                      <input class="page-filter__cost" id="max-cost" type="number" name="max-cost" max="250000" placeholder="250000">
+                      <input class="page-filter__cost" id="max-cost" type="number" name="cost" max="250000" placeholder="250000">
                       <span class="page-filter__cost-underline"></span>
                     </p>
                   </div>
@@ -432,13 +433,13 @@
                 </button>
             </div>
             <div class="product-card-actions">
-              <a class="product-card-actions__link" href="#" aria-label="Сравнить товар">
+              <a class="product-card-actions__link js-item-compare" href="#" aria-label="Сравнить товар">
                 <span class="product-card-actions__icon">
                   <img src="img/compare2.png" alt="Сравнить товар" width="34" height="26">
                 </span>
                 <span class="product-card-actions__text product-card-actions__link-underline">Cравнить товар</span>
               </a>
-              <a class="product-card-actions__link" href="#" aria-label="Добавить в избранное">
+              <a class="product-card-actions__link js-add-favorite" href="#" aria-label="Добавить в избранное">
                 <span class="product-card-actions__icon">
                   <img src="img/favorite2.png" alt="Избранный товар" width="30" height="29">
                 </span>
@@ -674,7 +675,7 @@
             <div class="main-footer__action">
               <p class="main-footer__subscribe-news">Будьте в курсе новостей и новинок!</p>
               <p class="main-footer__subscribe-mailing">Подписывайтесь на рассылку</p>
-                <form id="main-footer__subscribe-action" class="form-validate main-footer__subscribe-form" action="" method="post">
+                <form id="main-footer__subscribe-action" class="js-form-validate main-footer__subscribe-form" action="" method="post">
                   <label for="subscribe-email" class="visually-hidden">Форма подписки</label>
                   <input id='subscribe-email' type="email" name="email" placeholder="Укажите свой email для подписки" required>
                 <button class="button-subscribe button button--default" type="button">
@@ -751,7 +752,7 @@
     <div class="modal-enter__wrapper">
      <div class="modal-enter__signup">
        <h2 class="modal-title">Вход в личный кабинет</h2>
-       <form class="form-validate modal-enter__form" action="" method="post">
+       <form class="js-form-validate modal-enter__form" action="" method="post">
         <div class="modal-form__wrap">
          <label class="modal-label" for="singup_email">Ваш email</label>
           <input class="modal-input" id="singup_email" type="email" name="email" placeholder="mikel_ivanov98@gmail.com" required>
@@ -788,21 +789,27 @@
      <button class="modal-enter__button-close" type="button">Закрыть</button>
    </div>
    </div>
-   <div id="modal-callback">
+   <div id="modal-callback" class="modal-default">
      <h2 class="modal-title">Перезвоните мне</h2>
-     <div class="modal-form__wrapper">
-      <form action="" class="form-validate modal-form">
+      <form action="" class="js-form-validate modal-form">
+      <div class="modal-form__wrapper">
          <label class="modal-label" for="callback">Номер телефона</label>
          <input class="modal-input" name="callback" id="callback" type="tel" placeholder="+38(0__) ___-__-__" required>
-     </div>
+       </div>
       <div class="modal-callback-btn">
         <button class="modal-callback-button button button--default" type="submit">
           <span class="button__text button__text--default text--reset">Перезвоните мне</span>
         </button>
+      </div>
       </form>
         <button class="modal-enter__button-close" type="button">Закрыть</button>
       </div>
-   </div>
+      <div id="modal-success" class="modal-default">
+        <span class="modal-success-top">Вы успешно подписаны на рассылку.</span>
+        <span class="modal-success-content">Спасибо, что вы с нами!</span>
+        <a href="#" class="modal-success-link">Вернуться на главную</a>
+        <button class="modal-enter__button-close" type="button">Закрыть</button>
+      </div>
    </div>
    <script src="scripts/magnific_popup/jquery.magnific-popup.js"></script>
    <script src="scripts/masked_input/jquery.maskedinput.min.js"></script>
