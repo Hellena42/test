@@ -3,34 +3,35 @@ $(document).ready(function(){
   $('.main-nav').removeClass('main-nav--no-js');
   $('.main-nav').addClass('main-nav--closed');
 
-
-  let openMainMenu = function(){
+  const openMainMenu = function(){
       $('.main-nav').addClass('main-nav--opened');
       $('.main-nav').removeClass('main-nav--closed');
   };
 
-  let closeMainMenu = function(){
+  const closeMainMenu = function(){
     $('.main-nav').addClass('main-nav--closed');
     $('.main-nav').removeClass('main-nav--opened');
   };
 
-  $('.main-nav__button-close').click(function(){
+  $('.main-nav__button-close').click(function(e){
+    e.preventDefault();
      if ($('.main-nav').hasClass('main-nav--closed')){
       openMainMenu();
     } else {
       closeMainMenu();
     };
-
     $('body').toggleClass('lock');
   });
 
-  $('.main-menu__burger').on('click', function(){
+  $('.main-menu__burger').on('click', function(e){
+    e.preventDefault();
     $('.page-filter__aside-list').toggleClass('page-filter__block--active');
     $('body').toggleClass('lock');
     $('.modal-overlay').addClass('modal-overlay__show');
   });
 
-  $('.page-filter__hidden-btn').on('click', function(){
+  $('.page-filter__hidden-btn').on('click', function(e){
+    e.preventDefault();
     $('.page-filter__wrapper').toggleClass('page-filter__block--active');
     $('body').addClass('lock');
   });
@@ -40,7 +41,6 @@ $(document).ready(function(){
     $('.modal-overlay').removeClass('modal-overlay__show');
     $('body').removeClass('lock');
   });
-
 
   $('.js-callback').magnificPopup({
     type: 'inline',
@@ -105,16 +105,50 @@ $(document).ready(function(){
     });
  });
     
-   let clicks = 0;
-   let addCounter = function(){
-      $('.actions-list__counter').show('.actions-list__link');
-      clicks++;
-      $('.actions-list__counter').html(clicks);
+const $makeCounter = function(){
+    let clicks = 0;
+    return function(){
+      ++clicks;
+      return clicks;
     };
+  };
 
-    $('.js-item-compare').on('click', function(){
-      $('.js-title-compare').text('В сравнении');
-        addCounter();
-    });
+const $counterCompare = $makeCounter();
+const $counterFavorite = $makeCounter();
+const $counterProduct = $makeCounter();
 
+$('.js-counter-compare').on('click', function(){
+  $('.js-title-compare').text('В сравнении');
+  $('.js-item-compare').find('.actions-list__counter').show().html($counterCompare());
 });
+
+$('.js-counter-favorite').on('click', function(){
+  $('.js-title-favorite').text('В избранном');
+  $('.js-item-favorite').find('.actions-list__counter').show().html($counterFavorite());
+});
+
+$('.js-buy-product').on('click', function(){
+  $('.js-title-basket').text('В корзине');
+  $('.js-item-basket').find('.actions-list__counter').show().html($counterProduct());
+});
+
+$('.sort-category').select2({
+  dropdownParent: $('.page-search__category'),
+  minimumResultsForSearch: Infinity
+});
+
+$('.page-filter__select').each(function(){
+  let $selectParent = $(this).parent();
+  $(this).select2({
+  width: '100%',
+  dropdownParent: $selectParent,
+  minimumResultsForSearch: Infinity
+});
+});
+  
+$('.page-filter__select-clear-btn').on('click', function(){
+  $(".page-filter__select").select2("val", "0");
+  $('.page-filter__cost').val('');
+})
+
+ });

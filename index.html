@@ -9,6 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="scripts/magnific_popup/magnific-popup.css">
+  <link rel="stylesheet" href="scripts/select2/css/select2.min.css">
+  <link rel="stylesheet" href="scripts/select2/js/select2.min.js">
   </head>
   <body>
     <header class="page-header">
@@ -65,29 +67,30 @@
         </div>
         <div class="header-actions">
           <ul class="header-actions__list actions-list">
-            <li class="actions-list__item">
-              <a class="actions-list__link js-action-compare" href="#">
+            <li class="actions-list__item js-item-compare">
+              <a class="actions-list__link" href="#">
                 <div class="image-wrap">
                   <img src="img/compare.png" alt="Сравнить товары" width="45" height="34">
                 </div>
                 <p class="actions-list__title js-title-compare">Сравнение</p>
               </a>
-              <span class="actions-list__counter" style="display: none;">0</span>
+              <span class="actions-list__counter">0</span>
             </li>
-            <li class="actions-list__item">
+            <li class="actions-list__item js-item-favorite">
               <a class="actions-list__link" href="#">
                 <div class="image-wrap">
                   <img src="img/favorite.png" alt="Избранное" width="34" height="33">
                 </div>
-                  <p class="actions-list__title">Избранное</p>
+                  <p class="actions-list__title js-title-favorite">Избранное</p>
               </a>
+              <span class="actions-list__counter">0</span>
             </li>
-            <li class="actions-list__item">
+            <li class="actions-list__item js-item-basket">
               <a class="actions-list__link" href="#">
                 <div class="image-wrap">
                   <img src="img/basket.png" alt="Корзина" width="40" height="35">
                 </div>
-                <p class="actions-list__title">Корзина</p>
+                <p class="actions-list__title js-title-basket">Корзина</p>
               </a>
               <span class="actions-list__counter">5</span>
             </li>
@@ -146,19 +149,12 @@
             <label for="search" class="visually-hidden">Поиск</label>
             <input class="page-search__form-input" id="search" type="search" name="search" placeholder="Поиск по сайту">
               <div class="page-search__category">
-                <select id="sort-category" class="visually-hidden" name="sort-category">
-                  <option selected value="">Ссылка 1</option>
-                  <option value="1">Ссылка 2</option>
-                  <option value="2">Ссылка 3</option>
+                <select class="sort-category visually-hidden" name="sort-category">
+                  <option value="0">Все категории</option>
+                  <option value="1">Ссылка 1</option>
+                  <option value="2">Ссылка 2</option>
+                  <option value="3">Ссылка 3</option>
                 </select>
-                <div id="page-search__category-select">
-                  <span class="page-search__category-current" data-value="">Все категории</span>
-                  <ul class="page-search__category-full category-full">
-                    <li class="category-full__item" data-value="1"><a href="#">Ссылка 1</a></li>
-                    <li class="category-full__item" data-value="2"><a href="#">Ссылка 2</a></li>
-                    <li class="category-full__item" data-value="3"><a href="#">Ссылка 3</a></li>
-                  </ul>
-                </div>
             </div>
             <button class="page-search__button-search button button--default">
               <span class="button__text button__text--big">Поиск</span>
@@ -201,123 +197,67 @@
             <form class="js-form-validate page-filter__select-form-wrapper" action="" method="get">
               <div class="page-filter__select-form-layout">
               <div class="page-filter__select-form">
-                <select name="page-filter-select__options" class="visually-hidden">
-                  <option value="" selected>Select1</option>
+                <select name="filter-select" class="page-filter__select visually-hidden">
+                  <option value="0">Select1</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
                 </select>
-                <div class="page-filter__select-title" data-value="">
-                  <span class="page-filter__select-title-current">Select1</span>
-                  <span class="page-filter__select-title--underline"></span>
-                </div>
-                <ul class="page-filter__select-list select-list">
-                  <li class="select-list__item" data-value="">Select1</li>
-                  <li class="select-list__item" data-value="1">Item 1</li>
-                  <li class="select-list__item">Item 2</li>
-                </ul>
+                <span class="page-filter__select-title--underline"></span>
               </div>
               <div class="page-filter__select-form">
-                <select name="page-filter-select__options" class="visually-hidden">
-                  <option value="" selected>Select2</option>
+                <select name="filter-select" class="page-filter__select visually-hidden">
+                  <option value="0">Select2</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
                 </select>
-                <div class="page-filter__select-title" data-value="">
-                  <span class="page-filter__select-title-current">Select2</span>
-                  <span class="page-filter__select-title--underline"></span>
-                </div>
-                <ul class="page-filter__select-list select-list">
-                  <li class="select-list__item" data-value="">Select2</li>
-                  <li class="select-list__item" data-value="1">Item 1</li>
-                  <li class="select-list__item" data-value="2">Item 2</li>
-                </ul>
+                <span class="page-filter__select-title--underline"></span>
               </div>
                 <div class="page-filter__select-form">
-                  <select name="page-filter-select__options" class="visually-hidden">
-                    <option value="" selected>Select3</option>
+                  <select name="filter-select" class="page-filter__select visually-hidden">
+                    <option value="0">Select3</option>
                     <option value="1">Item 1</option>
                     <option value="2">Item 2</option>
                 </select>
-                  <div class="page-filter__select-title" data-value="">
-                    <span class="page-filter__select-title-current">Select3</span>
-                    <span class="page-filter__select-title--underline"></span>
-                  </div>
-                  <ul class="page-filter__select-list select-list">
-                    <li class="select-list__item" data-value="">Select3</li>
-                    <li class="select-list__item" data-value="1">Item 1</li>
-                    <li class="select-list__item" data-value="2">Item 2</li>
-                  </ul>
+                <span class="page-filter__select-title--underline"></span>
               </div>
                 <div class="page-filter__select-form">
-                  <select name="page-filter-select__options" class="visually-hidden">
-                    <option value="" selected>Select4</option>
+                  <select name="filter-select" class="page-filter__select visually-hidden">
+                    <option value="0">Select4</option>
                     <option value="1">Item 1</option>
                     <option value="2">Item 2</option>
                 </select>
-                  <div class="page-filter__select-title" data-value="">
-                    <span class="page-filter__select-title-current">Select4</span>
-                    <span class="page-filter__select-title--underline"></span>
-                  </div>
-                  <ul class="page-filter__select-list select-list">
-                    <li class="select-list__item" data-value="">Select4</li>
-                    <li class="select-list__item" data-value="1">Item 1</li>
-                    <li class="select-list__item" data-value="2">Item 2</li>
-                  </ul>
+                <span class="page-filter__select-title--underline"></span>
               </div>
               <div class="page-filter__select-form">
-                <select name="page-filter-select__options" class="visually-hidden">
-                  <option value="" selected>Select5</option>
+                <select name="filter-select" class="page-filter__select visually-hidden">
+                  <option value="0">Select5</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
                 </select>
-                  <div class="page-filter__select-title" data-value="">
-                    <span class="page-filter__select-title-current">Select5</span>
-                    <span class="page-filter__select-title--underline"></span>
-                  </div>
-                  <ul class="page-filter__select-list select-list">
-                    <li class="select-list__item" data-value="">Select5</li>
-                    <li class="select-list__item" data-value="1">Item 1</li>
-                    <li class="select-list__item" data-value="2">Item 2</li>
-                  </ul>
+                <span class="page-filter__select-title--underline"></span>
               </div>
               <div class="page-filter__select-form">
-                <select name="page-filter-select__options" class="visually-hidden">
-                  <option value="" selected>Select6</option>
+                <select name="filter-select" class="page-filter__select visually-hidden">
+                  <option value="0">Select6</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
                 </select>
-                  <div class="page-filter__select-title" data-value="">
-                    <span class="page-filter__select-title-current">Select6</span>
-                    <span class="page-filter__select-title--underline"></span>
-                  </div>
-                  <ul class="page-filter__select-list select-list">
-                    <li class="select-list__item" data-value="">Select6</li>
-                    <li class="select-list__item" data-value="1">Item 1</li>
-                    <li class="select-list__item" data-value="2">Item 2</li>
-                  </ul>
+                <span class="page-filter__select-title--underline"></span>
               </div>
               <div class="page-filter__select-form">
-                <select name="page-filter-select__options" class="visually-hidden">
-                  <option value="" selected>Select7</option>
+                <select name="filter-select" class="page-filter__select visually-hidden">
+                  <option value="0">Select7</option>
                   <option value="1">Item 1</option>
                   <option value="2">Item 2</option>
                 </select>
-                  <div class="page-filter__select-title" data-value="">
-                    <span class="page-filter__select-title-current">Select7</span>
-                    <span class="page-filter__select-title--underline"></span>
-                  </div>
-                  <ul class="page-filter__select-list select-list">
-                    <li class="select-list__item" data-value="">Select7</li>
-                    <li class="select-list__item" data-value="1">Item 1</li>
-                    <li class="select-list__item" data-value="2">Item 2</li>
-                  </ul>
+                <span class="page-filter__select-title--underline"></span>
               </div>
               <div class="page-filter__select-form">
                 <label for="min_cost" class="page-filter__select-form-label">Цена</label>
                 <div class="page-filter__select-form-cost">
                   <div class="page-filter__select-cost-wrapper">
                     <p class="page-filter__cost-wrapper">
-                      <input class="page-filter__cost" id="min_cost" type="number" name="cost" min="50" value="50" required>
+                      <input class="page-filter__cost" id="min_cost" type="number" name="cost" min="50" placeholder="50" required>
                     <span class="page-filter__cost-underline"></span>
                   </p>
                   </div>
@@ -427,24 +367,24 @@
               <p class="product-card-option__price-old">1250 грн.</p>
             </div>
             <div class="product-card-buy">
-                <button class="button-submit button button--gradient" type="button">
+                <button class="button-submit button button--gradient js-buy-product" type="button">
                   <span class="button__text button__text--default">Купить товар</span>
                   <span class="button__icon"></span>
                 </button>
             </div>
             <div class="product-card-actions">
-              <a class="product-card-actions__link js-item-compare" href="#" aria-label="Сравнить товар">
+              <div class="product-card-actions__link js-counter-compare" href="#" aria-label="Сравнить товар" data-action='compare'>
                 <span class="product-card-actions__icon">
                   <img src="img/compare2.png" alt="Сравнить товар" width="34" height="26">
                 </span>
                 <span class="product-card-actions__text product-card-actions__link-underline">Cравнить товар</span>
-              </a>
-              <a class="product-card-actions__link js-add-favorite" href="#" aria-label="Добавить в избранное">
+              </div>
+              <div class="product-card-actions__link js-counter-favorite" href="#" aria-label="Добавить в избранное" data-action='favorite'>
                 <span class="product-card-actions__icon">
                   <img src="img/favorite2.png" alt="Избранный товар" width="30" height="29">
                 </span>
                 <span class="product-card-actions__text product-card-actions__link-underline">В избранное</span>
-              </a>
+              </div>
             </div>
             </div>
           </article>
@@ -504,24 +444,24 @@
                 <p class="product-card-option__price-old">1250 грн.</p>
               </div>
               <div class="product-card-buy">
-                <button class="button-submit button button--gradient" type="button">
+                <button class="button-submit button button--gradient js-buy-product" type="button">
                   <span class="button__text button__text--default">Купить товар</span>
                   <span class="button__icon"></span>
                 </button>
               </div>
               <div class="product-card-actions">
-                <a class="product-card-actions__link" href="#" aria-label="Сравнить товар">
+                <div class="product-card-actions__link js-counter-compare" href="#" aria-label="Сравнить товар">
                   <span class="product-card-actions__icon">
                   <img src="img/compare2.png" alt="Сравнить товар" width="34" height="26">
                 </span>
                   <span class="product-card-actions__text product-card-actions__link-underline">Cравнить товар</span>
-              </a>
-                <a class="product-card-actions__link" href="#" aria-label="Добавить в избранное">
+                </div>
+                <div class="product-card-actions__link js-counter-favorite" href="#" aria-label="Добавить в избранное">
                 <span class="product-card-actions__icon">
                   <img src="img/favorite2.png" alt="Избранный товар" width="30" height="29">
                 </span>
                   <span class="product-card-actions__text product-card-actions__link-underline">В избранное</span>
-              </a>
+                </div>
               </div>
             </div>
           </article>
@@ -579,24 +519,24 @@
                 <p class="product-card-option__price-old">12 250 грн.</p>
               </div>
               <div class="product-card-buy">
-                <button class="button-submit button button--gradient" type="button">
+                <button class="button-submit button button--gradient js-buy-product" type="button">
                   <span class="button__text button__text--default">Купить товар</span>
                   <span class="button__icon"></span>
                 </button>
               </div>
               <div class="product-card-actions">
-                <a class="product-card-actions__link" href="#" aria-label="Сравнить товар">
+                <div class="product-card-actions__link js-counter-compare" href="#" aria-label="Сравнить товар">
                   <span class="product-card-actions__icon">
                   <img src="img/compare2.png" alt="Сравнить товар" width="34" height="26">
                 </span>
                   <span class="product-card-actions__text product-card-actions__link-underline">Cравнить товар</span>
-                </a>
-                <a class="product-card-actions__link" href="#" aria-label="Добавить в избранное">
+                </div>
+                <div class="product-card-actions__link js-counter-favorite" href="#" aria-label="Добавить в избранное">
                 <span class="product-card-actions__icon">
                   <img src="img/favorite2.png" alt="Избранный товар" width="30" height="29">
                 </span>
                   <span class="product-card-actions__text product-card-actions__link-underline">В избранное</span>
-              </a>
+              </div>
               </div>
             </div>
           </article>
@@ -641,24 +581,24 @@
                 <p class="product-card-option__price">599 <span>грн.</span></p>
               </div>
               <div class="product-card-buy">
-                <button class="button-submit button button--gradient" type="button">
+                <button class="button-submit button button--gradient js-buy-product" type="button">
                   <span class="button__text button__text--default">Купить товар</span>
                   <span class="button__icon"></span>
                 </button>
               </div>
               <div class="product-card-actions">
-                <a class="product-card-actions__link" href="#" aria-label="Сравнить товар">
+                <div class="product-card-actions__link js-counter-compare" href="#" aria-label="Сравнить товар">
                   <span class="product-card-actions__icon">
                   <img src="img/compare2.png" alt="Сравнить товар" width="34" height="26">
                 </span>
                   <span class="product-card-actions__text product-card-actions__link-underline">Cравнить товар</span>
-                </a>
-                <a class="product-card-actions__link" href="#" aria-label="Добавить в избранное">
+                </div>
+                <div class="product-card-actions__link js-counter-favorite" href="#" aria-label="Добавить в избранное">
                 <span class="product-card-actions__icon">
                   <img src="img/favorite2.png" alt="Избранный товар" width="30" height="29">
                 </span>
                   <span class="product-card-actions__text product-card-actions__link-underline">В избранное</span>
-                </a>
+                </div>
               </div>
             </div>
           </article>
@@ -814,6 +754,7 @@
    <script src="scripts/magnific_popup/jquery.magnific-popup.js"></script>
    <script src="scripts/masked_input/jquery.maskedinput.min.js"></script>
    <script src="scripts/jquery_validation/jquery.validate.min.js"></script>
+   <script src="scripts/select2/js/select2.min.js"></script>
    <script src="scripts/scripts.js"></script>
   </body>
 </html>
