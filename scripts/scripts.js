@@ -23,11 +23,13 @@ $(document).ready(function(){
     $('body').toggleClass('lock');
   });
 
-  $('.main-menu__burger').on('click', function(e){
-    e.preventDefault();
-    $('.page-filter__aside-list').toggleClass('page-filter__block--active');
-    $('body').toggleClass('lock');
-    $('.modal-overlay').addClass('modal-overlay__show');
+  $('.main-menu__burger').on('click', function(){
+    if ($(window).width() < 1023) {
+      $('.page-filter__aside-list').toggleClass('page-filter__block--active');
+      $('body').toggleClass('lock');
+      $('.modal-overlay').addClass('modal-overlay__show');
+    } 
+    return false;
   });
 
   $('.page-filter__hidden-btn').on('click', function(e){

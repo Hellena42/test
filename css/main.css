@@ -3362,10 +3362,12 @@ span.modal-success-top {
     width: 100%;
     height: 100vh;
     padding: 30px;
+    margin-top: -1px;
   }
 
   .modal-enter__wrapper {
     flex-direction: column;
+    margin-top: 20px;
   }
 
   .modal-enter__signup {
@@ -3408,8 +3410,8 @@ span.modal-success-top {
   }
 
   #modal-enter .modal-enter__button-close {
-    top: 15px;
-    left: 10px;
+    top: 30px;
+    left: 30px;
   }
 
   #modal-enter .modal-enter__button-close::before,
