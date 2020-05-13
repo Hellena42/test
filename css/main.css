@@ -1872,6 +1872,12 @@ button.mfp-close {
    }
 }
 
+@media (min-width: 320px) and (max-width: 479px) {
+  .page-filter__tab-strip {
+    width: 60%;
+  }
+}
+
 
 @media (min-width: 640px) and (max-width: 1023px) {
   .page-filter__select-block {
