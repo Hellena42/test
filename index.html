@@ -183,17 +183,94 @@
           </div>
           </div>
           <div class="page-filter__select-block">
-          <div class="page-filter__tab-wrapper">
-              <p class="page-filter__tab-strip">
-                <label class="page-filter__tab-label"><input type="radio" name="toggle" checked>
-                  <span class="page-filter__tab-button">Tab 1</span>
-                </label>
-                <label class="page-filter__tab-label"><input type="radio" name="toggle">
-                  <span class="page-filter__tab-button">Tab 2</span>
-                </label>
-              </p>
+            <div class="page-filter__tab-wrapper">
+            <div class="page-filter__tab-strip">
+              <div class="page-filter__tab-button page-filter__tab-button--active">
+                <span class="page-filter__tab-text">Tab 1</span>
+              </div>
+              <div class="page-filter__tab-button">
+                <span class="page-filter__tab-text">Tab 2</span>
+              </div>
+            </div>
           </div>
           <div class="page-filter__select-wrapper">
+            <form class="js-form-validate page-filter__select-form-wrapper" action="" method="get">
+              <div class="page-filter__select-form-layout">
+              <div class="page-filter__select-form">
+                <select name="filter-select" class="page-filter__select visually-hidden">
+                  <option value="0">Select1</option>
+                  <option value="1">Item 1</option>
+                  <option value="2">Item 2</option>
+                </select>
+                <span class="page-filter__select-title--underline"></span>
+              </div>
+              <div class="page-filter__select-form">
+                <select name="filter-select" class="page-filter__select visually-hidden">
+                  <option value="0">Select2</option>
+                  <option value="1">Item 1</option>
+                  <option value="2">Item 2</option>
+                </select>
+                <span class="page-filter__select-title--underline"></span>
+              </div>
+                <div class="page-filter__select-form">
+                  <select name="filter-select" class="page-filter__select visually-hidden">
+                    <option value="0">Select3</option>
+                    <option value="1">Item 1</option>
+                    <option value="2">Item 2</option>
+                </select>
+                <span class="page-filter__select-title--underline"></span>
+              </div>
+                <div class="page-filter__select-form">
+                  <select name="filter-select" class="page-filter__select visually-hidden">
+                    <option value="0">Select4</option>
+                    <option value="1">Item 1</option>
+                    <option value="2">Item 2</option>
+                </select>
+                <span class="page-filter__select-title--underline"></span>
+              </div>
+              <div class="page-filter__select-form">
+                <select name="filter-select" class="page-filter__select visually-hidden">
+                  <option value="0">Select6</option>
+                  <option value="1">Item 1</option>
+                  <option value="2">Item 2</option>
+                </select>
+                <span class="page-filter__select-title--underline"></span>
+              </div>
+              <div class="page-filter__select-form">
+                <label for="min_cost" class="page-filter__select-form-label">Цена</label>
+                <div class="page-filter__select-form-cost">
+                  <div class="page-filter__select-cost-wrapper">
+                    <p class="page-filter__cost-wrapper">
+                      <input class="page-filter__cost" id="min_cost" type="number" name="cost" min="50" placeholder="50" required>
+                    <span class="page-filter__cost-underline"></span>
+                  </p>
+                  </div>
+                  <div class="page-filter__select-cost-wrapper">
+                    <label for="max-cost" class="visually-hidden">Максимальная цена</label>
+                    <p class="page-filter__cost-wrapper">
+                      <input class="page-filter__cost" id="max-cost" type="number" name="cost" max="250000" placeholder="250000">
+                      <span class="page-filter__cost-underline"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="page-filter__select-buttons">
+              <p class="page-filter__select-buttons-wrap">
+                <button class="page-filter__select-clear-btn button button--reset" type="button">
+                  <span class="button__text button__text--default text--reset">Очистить фильтр</span>
+                  <span class="page-filter__select-clear-cross"></span>
+                </button>
+              </p>
+              <p class="page-filter__select-buttons-wrap">
+                <button class="button-submit button button--gradient" type="button">
+                  <span class="button__text button__text--default">Применить фильтр</span>
+                </button>
+              </p>
+            </div>
+            </form>
+          </div>
+                    <div class="page-filter__select-wrapper page-filter__select-wrapper--hide">
             <form class="js-form-validate page-filter__select-form-wrapper" action="" method="get">
               <div class="page-filter__select-form-layout">
               <div class="page-filter__select-form">
@@ -271,8 +348,7 @@
                 </div>
               </div>
               </div>
-            </form>
-            <div class="page-filter__select-buttons">
+              <div class="page-filter__select-buttons">
               <p class="page-filter__select-buttons-wrap">
                 <button class="page-filter__select-clear-btn button button--reset" type="button">
                   <span class="button__text button__text--default text--reset">Очистить фильтр</span>
@@ -285,6 +361,7 @@
                 </button>
               </p>
             </div>
+            </form>
           </div>
           </div>
         </div>
@@ -615,10 +692,10 @@
             <div class="main-footer__action">
               <p class="main-footer__subscribe-news">Будьте в курсе новостей и новинок!</p>
               <p class="main-footer__subscribe-mailing">Подписывайтесь на рассылку</p>
-                <form id="main-footer__subscribe-action" class="js-form-validate main-footer__subscribe-form" action="" method="post">
+                <form class="js-form-validate js-subscribe main-footer__subscribe-form" method="post">
                   <label for="subscribe-email" class="visually-hidden">Форма подписки</label>
                   <input id='subscribe-email' type="email" name="email" placeholder="Укажите свой email для подписки" required>
-                <button class="button-subscribe button button--default" type="button">
+                <button class="button-subscribe button button--default" type="submit">
                   <span class="button__text button__text--default">Подписаться</span>
                 </button>
                 </form>
@@ -692,7 +769,7 @@
     <div class="modal-enter__wrapper">
      <div class="modal-enter__signup">
        <h2 class="modal-title">Вход в личный кабинет</h2>
-       <form class="js-form-validate modal-enter__form" action="" method="post">
+       <form class="js-form-validate modal-enter__form" method="post">
         <div class="modal-form__wrap">
          <label class="modal-label" for="singup_email">Ваш email</label>
           <input class="modal-input" id="singup_email" type="email" name="email" placeholder="mikel_ivanov98@gmail.com" required>
@@ -731,7 +808,7 @@
    </div>
    <div id="modal-callback" class="modal-default">
      <h2 class="modal-title">Перезвоните мне</h2>
-      <form action="" class="js-form-validate modal-form">
+      <form class="js-form-validate modal-form" method="post">
       <div class="modal-form__wrapper">
          <label class="modal-label" for="callback">Номер телефона</label>
          <input class="modal-input" name="callback" id="callback" type="tel" placeholder="+38(0__) ___-__-__" required>
@@ -744,7 +821,7 @@
       </form>
         <button class="modal-enter__button-close" type="button">Закрыть</button>
       </div>
-      <div id="modal-success" class="modal-default">
+      <div class="modal-success modal-default">
         <span class="modal-success-top">Вы успешно подписаны на рассылку.</span>
         <span class="modal-success-content">Спасибо, что вы с нами!</span>
         <a href="#" class="modal-success-link">Вернуться на главную</a>
